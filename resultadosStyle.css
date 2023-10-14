@@ -31,8 +31,7 @@ form button{
 }
 
 .filtrosContainer{
-    width: fit-content;
-    padding: 15px;
+    padding: 15px calc(10%);
     border: none;
     border-radius: 15px;
 }
