@@ -12,9 +12,6 @@ main{
     padding: 20px;
 }
 
-aside{
-    margin-left: 0 !important;
-} 
 
 #results{
     gap: 20px;
