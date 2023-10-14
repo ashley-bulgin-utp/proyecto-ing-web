@@ -30,7 +30,7 @@ form button{
     width: fit-content;
 }
 
-#comidas{
+.filtrosContainer{
     width: fit-content;
     padding: 15px;
     border: none;
