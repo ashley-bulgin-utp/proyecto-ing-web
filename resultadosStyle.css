@@ -1,0 +1,38 @@
+header{
+    height: 50px;
+    background-color: #DF3737;
+}
+
+nav{
+    height: 50px;
+    background-color: #909090;
+}
+
+main{
+    padding: 20px;
+}
+
+aside{
+    margin-left: 0 !important;
+} 
+
+#results{
+    gap: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form button{
+    width: fit-content;
+}
+
+#comidas{
+    width: fit-content;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+}
