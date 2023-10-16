@@ -36,3 +36,8 @@ form button{
 #filtros{
     margin-top: 10px;
 }
+
+#filtroBtn{
+    background-color: #DF3737;
+    color: #ffffff;
+}
