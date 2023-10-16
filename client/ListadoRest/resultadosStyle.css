@@ -57,3 +57,13 @@ form button{
 .card-text, .card-title{
     margin: 0px !important;
 }
+
+.expandContainer{
+    display: flex;
+    justify-content: end;
+}
+
+.expandBtn{
+    background-color: #DF3737;
+    color: #ffffff;
+}
