@@ -41,3 +41,10 @@ form button{
     background-color: #DF3737;
     color: #ffffff;
 }
+
+#applyFilterBtn{
+    background-color: white;
+    color: #DF3737;
+    border: solid #DF3737;
+    border-radius: 10px;
+}
