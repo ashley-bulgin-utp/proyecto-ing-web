@@ -48,3 +48,8 @@ form button{
     border: solid #DF3737;
     border-radius: 10px;
 }
+
+.card{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
