@@ -1,0 +1,27 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&family=Urbanist:wght@400;500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.info_rest {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 50%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.fa-arrow-left {
+    width: 2.375rem;
+    height: 2.375rem;
+}
