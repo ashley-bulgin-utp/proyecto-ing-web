@@ -62,7 +62,7 @@ function createCardImg(src,NombreRestaurante){
 
 function createCard(restauranteObj){
     const cardElement = document.createElement("div");
-    cardElement.classList.add("card", "col", "shadow", "rounded");
+    cardElement.classList.add("card", "col", "shadow", "rounded","restauranteCard");
 
     cardElement.appendChild(createCardImg(restauranteObj.img,restauranteObj.name))
     cardElement.appendChild(createCardBody(restauranteObj.name,restauranteObj.precio,restauranteObj.horario,restauranteObj.ubicacion,restauranteObj.id));

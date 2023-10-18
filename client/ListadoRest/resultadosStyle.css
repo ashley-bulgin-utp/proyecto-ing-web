@@ -73,3 +73,7 @@ form button{
     color: #ffffff !important;
     border-radius: 20px !important;
 }
+
+.restauranteCard{
+    width: 18rem !important;
+}
