@@ -31,7 +31,7 @@ function createVerMasBtn(restauranteId){
     const link = document.createElement("a");
 
     container.classList.add("expandContainer");
-    link.classList.add("btn","btn-primary", "expandBtn","justify-content-end");
+    link.classList.add("btn", "expandBtn","justify-content-end");
 
     link.textContent = "Ver más";
     const href = '../infoRest/restaurante.html?restId=' + restauranteId;
