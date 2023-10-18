@@ -26,7 +26,7 @@ function createCardHorario(horario){
     return cardHorarioElement;
 }
 
-function createVerMasBtn(){
+function createVerMasBtn(restauranteId){
     const container = document.createElement("div");
     const link = document.createElement("a");
 
@@ -34,12 +34,12 @@ function createVerMasBtn(){
     link.classList.add("btn","btn-primary", "expandBtn","justify-content-end");
 
     link.textContent = "Ver más";
-    link.setAttribute("href","#");
+    link.setAttribute("href","..\InfoRest\infoRestaurante.html?restId="+restauranteId);
     container.appendChild(link);
     return container
 }
 
-function createCardBody(title,precio,horario,ubicacion){
+function createCardBody(title,precio,horario,ubicacion,restauranteId){
     const cardBodyElement = document.createElement("div");
     cardBodyElement.classList.add("card-body");
 
@@ -47,7 +47,7 @@ function createCardBody(title,precio,horario,ubicacion){
     cardBodyElement.appendChild(createCardPrice(precio));
     cardBodyElement.appendChild(createCardHorario(horario));
     cardBodyElement.appendChild(createCardUbicacion(ubicacion));
-    cardBodyElement.appendChild(createVerMasBtn());
+    cardBodyElement.appendChild(createVerMasBtn(restauranteId));
     return cardBodyElement;
 }
 
@@ -64,7 +64,7 @@ function createCard(restauranteObj){
     cardElement.classList.add("card", "col", "shadow", "rounded");
 
     cardElement.appendChild(createCardImg(restauranteObj.img,restauranteObj.name))
-    cardElement.appendChild(createCardBody(restauranteObj.name,restauranteObj.precio,restauranteObj.horario,restauranteObj.ubicacion));
+    cardElement.appendChild(createCardBody(restauranteObj.name,restauranteObj.precio,restauranteObj.horario,restauranteObj.ubicacion,restauranteObj.id));
     return cardElement;
 }
 
