@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "Pollos Hermanos",
+        "img": "Url",
+        "precio": "$$",
+        "horario": "14:00 - 20:00 Lunes a viernes",
+        "ubicacion": "Panamá",
+        "caracteristicas":"",
+        "descripcion":"",
+        "contacto":""
+    },
+    {
+        "id": 2,
+        "name": "Pollos Ricos",
+        "img": "Url",
+        "precio": "$",
+        "horario": "11:00 - 19:00 Lunes a sábado",
+        "ubicacion": "Chiriquí",
+        "caracteristicas":"",
+        "descripcion":"",
+        "contacto":""
+    },
+    {
+        "id": 3,
+        "name": "La Parrilla",
+        "img": "Url",
+        "precio": "$$$",
+        "horario": "18:00 - 23:00 Todos los días",
+        "ubicacion": "Veraguas",
+        "caracteristicas":"",
+        "descripcion":"",
+        "contacto":""
+    },
+    {
+        "id": 4,
+        "name": "Pizza Mania",
+        "img": "Url",
+        "precio": "$$",
+        "horario": "12:00 - 21:00 Lunes a viernes",
+        "ubicacion": "Herrera",
+        "caracteristicas":"",
+        "descripcion":"",
+        "contacto":""
+    },
+    {
+        "id": 5,
+        "name": "Pizza",
+        "img": "Url",
+        "precio": "$$",
+        "horario": "06:00 - 21:00 Lunes a viernes",
+        "ubicacion": "Herrera",
+        "caracteristicas":"",
+        "descripcion":"",
+        "contacto":""
+    }   
+]
