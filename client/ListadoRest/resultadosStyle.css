@@ -69,7 +69,7 @@ form button{
 }
 
 .expandBtn{
-    background-color: #FB0D0D;
-    color: #ffffff;
-    border-radius: 20px;
+    background-color: #FB0D0D !important;
+    color: #ffffff !important;
+    border-radius: 20px !important;
 }
