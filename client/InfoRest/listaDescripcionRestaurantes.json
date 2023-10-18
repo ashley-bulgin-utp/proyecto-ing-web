@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "name": "Pollos Hermanos",
+        "img": "Url",
+        "precio": "$$",
+        "horario": "14:00 - 20:00 Lunes a viernes",
+        "ubicacion": "Panamá",
+        "características": "Acceso a discapacitados, estacionamientos",
+        "descripcion": "Restaurante de comida rápida especializado en pollo. ¡Ven y disfruta de nuestro delicioso pollo frito!",
+        "contacto": "Teléfono: (123) 456-7890, Correo electrónico: info@polloshermanos.com"
+    },
+    {
+        "id": 2,
+        "name": "Pollos Ricos",
+        "img": "Url",
+        "precio": "$",
+        "horario": "11:00 - 19:00 Lunes a sábado",
+        "ubicacion": "Chiriquí",
+        "caracteristicas": "Sillas de bebe",
+        "descripcion": "Restaurante de comida rápida con un toque especial en la preparación de pollo. ¡Sabores únicos te esperan!",
+        "contacto": "Teléfono: (987) 654-3210, Correo electrónico: info@pollosricos.com"
+      },
+      {
+        "id": 3,
+        "name": "La Parrilla",
+        "img": "Url",
+        "precio": "$$$",
+        "horario": "18:00 - 23:00 Todos los días",
+        "ubicacion": "Veraguas",
+        "caracteristicas": "Acceso a discapacitados, estacionamientos",
+        "descripcion": "Restaurante de alta cocina especializado en parrilladas. Descubre una experiencia gastronómica inolvidable.",
+        "contacto": "Teléfono: (555) 123-4567, Correo electrónico: info@laparrilla.com"
+      },
+      {
+        "id": 4,
+        "name": "Pizza Mania",
+        "img": "Url",
+        "precio": "$$",
+        "horario": "12:00 - 21:00 Lunes a viernes",
+        "ubicacion": "Herrera",
+        "caracteristicas": "Sillas de bebe",
+        "descripcion": "Pizzería con una amplia variedad de pizzas de alta calidad. ¡Ven y disfruta de tus sabores favoritos!",
+        "contacto": "Teléfono: (777) 987-6543, Correo electrónico: info@pizzamania.com"
+      },
+      {
+        "id": 5,
+        "name": "Pizza",
+        "img": "Url",
+        "precio": "$$",
+        "horario": "06:00 - 21:00 Lunes a viernes",
+        "ubicación": "Herrera",
+        "caracteristicas": "Acceso a discapacitados, estacionamientos",
+        "descripcion": "Pizzería con opciones para todos los gustos. ¡Prueba nuestras deliciosas pizzas recién horneadas!",
+        "contacto": "Teléfono: (444) 567-8901, Correo electrónico: info@pizza.com"
+      }      
+]

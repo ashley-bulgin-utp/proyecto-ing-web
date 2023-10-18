@@ -31,10 +31,11 @@ function createVerMasBtn(restauranteId){
     const link = document.createElement("a");
 
     container.classList.add("expandContainer");
-    link.classList.add("btn","btn-primary", "expandBtn","justify-content-end");
+    link.classList.add("btn", "expandBtn","justify-content-end");
 
     link.textContent = "Ver más";
-    link.setAttribute("href","..\InfoRest\infoRestaurante.html?restId="+restauranteId);
+    const href = '../infoRest/restaurante.html?restId=' + restauranteId;
+    link.setAttribute("href",href);
     container.appendChild(link);
     return container
 }
@@ -61,7 +62,7 @@ function createCardImg(src,NombreRestaurante){
 
 function createCard(restauranteObj){
     const cardElement = document.createElement("div");
-    cardElement.classList.add("card", "col", "shadow", "rounded");
+    cardElement.classList.add("card", "col", "shadow", "rounded","restauranteCard");
 
     cardElement.appendChild(createCardImg(restauranteObj.img,restauranteObj.name))
     cardElement.appendChild(createCardBody(restauranteObj.name,restauranteObj.precio,restauranteObj.horario,restauranteObj.ubicacion,restauranteObj.id));
