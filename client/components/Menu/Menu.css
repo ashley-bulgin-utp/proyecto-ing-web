@@ -80,7 +80,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    text-align: center;
     list-style: none;
     font-size: 1rem;
 }
@@ -94,20 +93,4 @@ body {
     color: #DF3737;
     font-weight: 700;
     padding: 0 0.3rem;
-}
-
-/* Media Queries */
-@media screen and (max-width: 425px) {
-    .menu-list a {
-        font-size: 0.8rem;
-        margin-left: 0.3rem;
-    }
-
-    ul {
-        padding: 0;
-    }
-
-    #lower {
-        height: 4rem;
-    }
 }
