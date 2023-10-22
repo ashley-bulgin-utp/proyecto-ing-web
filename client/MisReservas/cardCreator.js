@@ -8,7 +8,7 @@ function createCardTitle(title){
 function createCardDate(date){
     const cardPriceElement = document.createElement("p");
     cardPriceElement.classList.add("card-text","date");
-    cardPriceElement.textContent = date;
+    cardPriceElement.textContent = "Fecha: "+ date;
     return cardPriceElement;
 }
 
@@ -22,7 +22,7 @@ function createCardUbicacion(ubicacion){
 function createCardHorario(horario){
     const cardHorarioElement = document.createElement("p");
     cardHorarioElement.classList.add("card-text","horario");
-    cardHorarioElement.textContent = horario;
+    cardHorarioElement.textContent = "Hora: "+horario;
     return cardHorarioElement;
 }
 
@@ -33,7 +33,7 @@ function createVerMasBtn(reservaId){
     container.classList.add("expandContainer");
     link.classList.add("btn", "expandBtn","justify-content-end");
 
-    link.textContent = "Ver reserca";
+    link.textContent = "Ver reserva";
     const href = '../infoRest/restaurante.html?restId=' + reservaId;
     link.setAttribute("href",href);
     container.appendChild(link);
