@@ -160,6 +160,79 @@ select {
     opacity: 0.8;
 }
 
+.botones .btn-cancelar:focus,
+.botones .btn-reservar:focus {
+    background-color: red;
+}
+
+/* Modal */
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.3rem;
+    margin: 2rem;
+}
+
+#processingModal .modal-footer {
+    border-top: none;
+}
+
+#processingModal .modal-body {
+    text-align: center;
+}
+
+/* #processingModal .msg {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+} */
+
+#processingModal .modal-footer .btn {
+    font-size: 1rem;
+    color: white;
+    background-color: red;
+    border-color: red;
+}
+
+
+/* Styling del loader bar */
+@keyframes barWidth {
+    0%   {width: 0%;}
+    25%  {width: 50%;}
+    50%  {width: 100%;}
+    75%  {width: 50%;}
+    100% {width: 0%;}
+}
+
+@keyframes barWidth2 {
+    0%   {width: 0%;}
+    50%  {width: 50%;}
+    100% {width: 100%;}
+}
+
+.horizontal-bar-wrap{
+  height: 4px;
+  width: 100%;
+  .bar{
+    position: relative;
+    width: 0%;
+    height: 100%;
+    margin: 0 auto;
+    animation: barWidth;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    &.bar1{
+      animation-delay: 0s;
+      background: red;
+      top: 0;
+      z-index: 1;
+    }
+  }
+}
+
 /* Media Queries */
 @media(max-width: 768px) {
     .fa-arrow-left {
