@@ -5,10 +5,10 @@ function createCardTitle(title){
     return titleElement;
 }
 
-function createCardPrice(precio){
+function createCardDate(date){
     const cardPriceElement = document.createElement("p");
-    cardPriceElement.classList.add("card-text","precio");
-    cardPriceElement.textContent = precio;
+    cardPriceElement.classList.add("card-text","date");
+    cardPriceElement.textContent = date;
     return cardPriceElement;
 }
 
@@ -26,29 +26,29 @@ function createCardHorario(horario){
     return cardHorarioElement;
 }
 
-function createVerMasBtn(restauranteId){
+function createVerMasBtn(reservaId){
     const container = document.createElement("div");
     const link = document.createElement("a");
 
     container.classList.add("expandContainer");
     link.classList.add("btn", "expandBtn","justify-content-end");
 
-    link.textContent = "Ver más";
-    const href = '../infoRest/restaurante.html?restId=' + restauranteId;
+    link.textContent = "Ver reserca";
+    const href = '../infoRest/restaurante.html?restId=' + reservaId;
     link.setAttribute("href",href);
     container.appendChild(link);
     return container
 }
 
-function createCardBody(title,precio,horario,ubicacion,restauranteId){
+function createCardBody(title,precio,horario,ubicacion,reservaId){
     const cardBodyElement = document.createElement("div");
     cardBodyElement.classList.add("card-body");
 
     cardBodyElement.appendChild(createCardTitle(title));
-    cardBodyElement.appendChild(createCardPrice(precio));
+    cardBodyElement.appendChild(createCardDate(precio));
     cardBodyElement.appendChild(createCardHorario(horario));
     cardBodyElement.appendChild(createCardUbicacion(ubicacion));
-    cardBodyElement.appendChild(createVerMasBtn(restauranteId));
+    cardBodyElement.appendChild(createVerMasBtn(reservaId));
     return cardBodyElement;
 }
 
@@ -60,12 +60,12 @@ function createCardImg(src,NombreRestaurante){
     return imgElement;
 }
 
-function createCard(restauranteObj){
+function createCard(reservaObj){
     const cardElement = document.createElement("div");
     cardElement.classList.add("card", "col", "shadow", "rounded","restauranteCard");
 
-    cardElement.appendChild(createCardImg(restauranteObj.img,restauranteObj.name))
-    cardElement.appendChild(createCardBody(restauranteObj.name,restauranteObj.precio,restauranteObj.horario,restauranteObj.ubicacion,restauranteObj.id));
+    cardElement.appendChild(createCardImg(reservaObj.img,reservaObj.name))
+    cardElement.appendChild(createCardBody(reservaObj.name,reservaObj.date,reservaObj.horario,reservaObj.ubicacion,reservaObj.iD));
     return cardElement;
 }
 
