@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalContent = document.querySelector('.modalContent');
     const horizontalBar = document.querySelector('.horizontal-bar-wrap');
     const modalClose = document.querySelector('.modal-footer');
-    
+
     const elementIds = ['dateInput', 'sillas-dd', 'time', 'comentario', 'personas-dd']; 
     const formData = {};
 
@@ -39,26 +39,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Deshabilitar form fields por reserva exitosa
             document.querySelector('.btn-cerrar').addEventListener('click', function () {
-                document.querySelector('.btn-reservar').innerHTML = 'Modificar';
                 elementIds.forEach((id) => {
                     const element = document.getElementById(id);
                     if (element) {
                         element.disabled = true;
                     }
                 });
-                
-                // Habilitar form fields por modificar reserva
-                document.querySelector('.btn-reservar').addEventListener('click', function () {
-                    elementIds.forEach((id) => {
-                        const element = document.getElementById(id);
-                        if (element) {
-                            element.disabled = false;
-                        }
-                    });
-                    document.querySelector('.btn-reservar').innerHTML = 'Reservar';
-                });
+
+                document.querySelector('.btn-reservar').style.display = 'none';
+                document.querySelector('.btn-cancelar').style.display = 'none';
             });
         }, 3000);
+        
     
     });
 });

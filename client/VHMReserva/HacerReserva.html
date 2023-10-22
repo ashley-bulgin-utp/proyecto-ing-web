@@ -53,12 +53,12 @@
                 <!-- Fecha -->
                 <div class="field-group">
                     <label for="dateInput" class="sr-only">Fecha</label>
-                    <input type="date" name="date" id="dateInput">
+                    <input type="date" name="date" id="dateInput" required>
                 </div>
                 <!-- Sillas de bebe -->
                 <div class="field-group">
                     <label for="sillas-dd" class="sr-only">Fecha</label>
-                    <select id='sillas-dd' name='number'>
+                    <select id='sillas-dd' name='number' required>
                         <option value='1' selected="selected">1 silla bebe</option>
                         <option value='2'>2 sillas bebe</option>
                         <option value='3'>3 sillas bebe</option>
@@ -67,7 +67,7 @@
                 <!-- Hora -->
                 <div class="field-group">
                     <label for="time" class="sr-only">Hora</label>
-                    <input type="time" name="time" id="time">
+                    <input type="time" name="time" id="time" required>
                 </div>
                 <!-- Comentario -->
                 <div class="field-group-textarea">
@@ -76,7 +76,7 @@
                 </div>
                 <div class="field-group">
                     <label for="personas-dd" class="sr-only">Personas</label>
-                    <select id='personas-dd' name='number'>
+                    <select id='personas-dd' name='number' required>
                         <option value='1' selected="selected">1 persona</option>
                         <option value='2'>2 personas</option>
                         <option value='3'>3 personas</option>
@@ -95,7 +95,6 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body modalContent">
-                        
                         <div class="msg">
                             <span class="modal-msg">Procesando...</span>
                         </div>
