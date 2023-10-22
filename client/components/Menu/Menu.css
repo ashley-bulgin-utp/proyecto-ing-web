@@ -24,6 +24,11 @@ body {
     background: #DF3737;
 }
 
+.logo img {
+    width: 18rem;
+    height: auto;
+}
+
 .user_profile {
     display: flex;
     flex-direction: row;
