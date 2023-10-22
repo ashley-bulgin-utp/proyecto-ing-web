@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resultadosStyle.css">
+    <!-- Menu CSS -->
+    <link rel="stylesheet" href="/client/components/Menu/Menu.css">
+    <!-- Footer CSS -->
+    <link rel="stylesheet" href="/client/components/Footer/Footer.css">
+    <script src="resultados.js" defer type="module"></script>
+    <title>Resultados</title>
+</head>
+<body>
+  <div id="menu"></div>
+    <main class="container-fluid   row">
+        <div class="container-fluid pb-sm-5 p-0 px-sm-2 px-md-5">
+          <h2 class="text-center pb-sm-2">Mis reservas</h2>
+          <div id="results" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center justify-content-md-start">
+            
+         </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#menu").load("/client/components/Menu/Menu.html");
+        });
+        $(function(){
+            $("#footer").load("/client/components/Footer/Footer.html");
+        });
+
+        function checkFile(input) {
+            const file = input.files[0];
+            const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+
+            if (file) {
+                if (file.size > maxSize) {
+                    document.getElementById('fileSizeError').style.display = 'block';
+                    input.value = ''; // Clear the input field
+                } else {
+                    document.getElementById('fileSizeError').style.display = 'none';
+                }
+              }
+        }
+    </script>
+</body>
+</html>
