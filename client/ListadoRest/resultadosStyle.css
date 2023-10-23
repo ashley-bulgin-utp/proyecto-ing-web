@@ -18,7 +18,7 @@ main{
     gap: 20px;
 }
 
-form{
+#filtrosForm{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -76,4 +76,10 @@ form button{
 
 .restauranteCard{
     width: 18rem !important;
+}
+
+#seachContainer{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
 }
