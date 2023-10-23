@@ -18,8 +18,39 @@
         <a href="../ListadoRest/resultados.html" class="btn d-none d-sm-inline-block" id="returnBtn"><i class="fa-solid fa-arrow-left fa-2xl"></i></a>
         <div id="infoRestaContainer" class="container-fluid">
             <div class="topRestaurante row container-fluid justify-content-center">
-                <h1 class="text-center" id="titulo">Nombre del restaurante</h1>
-                <div style="width: 300px; height: 200px; background-color: gray;"></div>
+                <div class="topMain">
+                    <h1 class="text-center" id="titulo">Nombre del restaurante</h1>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active c-item">
+                            <img src="./assets/1.png" class="d-block  c-img" alt="...">
+                          </div>
+                          <div class="carousel-item c-item">
+                            <img src="./assets/2.png" class="d-block  c-img" alt="...">
+                          </div>
+                          <div class="carousel-item c-item">
+                            <img src="./assets/3.png" class="d-block  c-img" alt="...">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- <div style="width: 300px; height: 200px; background-color: gray;">
+                </div> -->
+                
 
             </div>
             <div class="contenido row container-fluid p-0 p-sm-5">
