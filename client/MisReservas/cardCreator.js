@@ -34,7 +34,7 @@ function createVerMasBtn(reservaId){
     link.classList.add("btn", "expandBtn","justify-content-end");
 
     link.textContent = "Ver reserva";
-    const href = '../infoRest/restaurante.html?restId=' + reservaId;
+    const href = '/client/VHMReserva/VerReserva.html?restId=' + reservaId;
     link.setAttribute("href",href);
     container.appendChild(link);
     return container
