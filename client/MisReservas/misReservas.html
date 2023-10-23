@@ -9,7 +9,7 @@
     <!-- Footer CSS -->
     <link rel="stylesheet" href="/client/components/Footer/Footer.css">
     <script src="resultados.js" defer type="module"></script>
-    <title>Resultados</title>
+    <title>Mis Reservas</title>
 </head>
 <body>
   <div id="menu"></div>
@@ -32,20 +32,6 @@
         $(function(){
             $("#footer").load("/client/components/Footer/Footer.html");
         });
-
-        function checkFile(input) {
-            const file = input.files[0];
-            const maxSize = 5 * 1024 * 1024; // 5MB in bytes
-
-            if (file) {
-                if (file.size > maxSize) {
-                    document.getElementById('fileSizeError').style.display = 'block';
-                    input.value = ''; // Clear the input field
-                } else {
-                    document.getElementById('fileSizeError').style.display = 'none';
-                }
-              }
-        }
     </script>
 </body>
 </html>
