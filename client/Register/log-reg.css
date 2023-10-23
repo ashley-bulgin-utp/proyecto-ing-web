@@ -37,17 +37,23 @@ body{
 
 }
 
+img{
+    max-width: 100%;
+    height: auto;
+}
 
 #food1{
     width: 60%;
     float: left;
-    max-height: 60%;
+    max-width: 100%;
+    height: auto;  
 }
 
 #food2{
     width: 60%;
     float: right;
-    max-width: 60%;
+    max-width: 100%;
+    height: auto;
 }
 
 h1{
@@ -125,3 +131,9 @@ table{
     border: none;
 }
 
+@media screen and (max-width: 600px) {
+    #loginsec, #regsec, #logosec, #logopi, img, #food1, #food2, label, .input, #grey, #gray, #button, button, #green, table  {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
