@@ -115,4 +115,10 @@ body {
     #lower {
         height: 4rem;
     }
+
+    .logo img {
+        content: url('/client/components/Menu/assets/logo-minimized.png');
+        width: 3.5rem;
+        height: 3rem;
+    }
 }
