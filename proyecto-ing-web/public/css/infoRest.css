@@ -1,0 +1,35 @@
+main{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#reservarBtn{
+    background-color: #FB0D0D;
+    color: #ffffff;
+}
+
+#returnBtn{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Carousel */
+.carousel {
+    padding: 1rem 0;
+}
+
+.c-item {
+    height: 400px;
+}
+
+.c-img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.topMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

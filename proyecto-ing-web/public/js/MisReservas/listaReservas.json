@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "name": "Pollos Hermanos",
+        "img": "https://cdn.pixabay.com/photo/2014/01/24/04/05/fried-chicken-250863_1280.jpg",
+        "date": "12/10/2023",
+        "horario": "14:00",
+        "ubicacion": "Panamá"
+    },
+    {
+        "id": 2,
+        "name": "Sushi Gourmet",
+        "img": "https://cdn.pixabay.com/photo/2014/05/26/14/53/sushi-354628_1280.jpg",
+        "date": "5/12/2023",
+        "horario": "11:00",
+        "ubicacion": "Chiriquí"
+    },
+    {
+        "id": 3,
+        "name": "La Parrilla",
+        "img": "https://cdn.pixabay.com/photo/2014/08/14/14/21/shish-kebab-417994_1280.jpg",
+        "date": "1/11/2023",
+        "horario": "18:00",
+        "ubicacion": "Veraguas"
+    },
+    {
+        "id": 4,
+        "name": "Pizza Mania",
+        "img": "https://cdn.pixabay.com/photo/2013/07/18/20/24/cheese-164872_1280.jpg",
+        "date": "Regular",
+        "horario": "12:00",
+        "ubicacion": "Herrera"
+    },
+    {
+        "id": 5,
+        "name": "McDonald's",
+        "img": "https://cdn.pixabay.com/photo/2019/02/27/11/45/fast-food-4023905_1280.jpg",
+        "date": "17/10/2023",
+        "horario": "06:00",
+        "ubicacion": "Herrera"
+    }   
+]
