@@ -19,6 +19,8 @@
             <form style="margin-left: 30px;">
                 <label for="regname">Nombre</label><br>
                 <input type="text" id="regname" name="regname" class="input"><br>
+                <label for="regapellido">Apellido</label><br>
+                <input type="text" id="regapellido" name="regapellido" class="input"><br>
                 <label for="regmail">Correo electrónico</label><br>
                 <input type="email" id="regmail" name="regmail" class="input"><br>
                 <label for="regphone">Teléfono</label><br>

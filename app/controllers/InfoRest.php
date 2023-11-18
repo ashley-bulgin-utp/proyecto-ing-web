@@ -1,14 +1,9 @@
 <?php
     class InfoRest extends Controller {
         public function __construct() {
-            $this->restModel = $this->model('M_Restaurantes');
         }
 
-        public function info($name) {
-            $users = $this->restModel->getUsers();
-            $data = [
-                'users' => $users
-            ];
+        public function info($data) {
             $this->view('infoRest', $data);
         }
         

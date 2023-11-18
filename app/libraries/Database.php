@@ -62,7 +62,7 @@
             return $this->statement->fetchAll(PDO::FETCH_OBJ);
         }
 
-        // Retrrieve single record 
+        // Retrieve single record 
         public function single() {
             $this->execute();
             return $this->statement->fetch(PDO::FETCH_OBJ);
