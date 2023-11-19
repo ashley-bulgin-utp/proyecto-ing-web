@@ -82,8 +82,9 @@
                         $filter = "";
                         foreach ($value as $index => $facility) {
                             $this->facilidadFiltro($index + 1, $facility);
-                            $filter .= $this->facilidadFiltro($index + 1, $facility);
-                            $filter = ($index === 0) ? ($filter . " AND ") : $filter;
+                            $newFilter = $this->facilidadFiltro($index + 1, $facility);
+                            $newFilter = ($index === 0) ?  $newFilter : (" AND ".$newFilter );
+                            $filter .= $newFilter;
                         }                       
                     }
                 } else {
@@ -91,7 +92,7 @@
                 }
             
                 //Construye la query
-                $queryComponents[] = isset($queryComponents) ? "AND $filter" : $filter;
+                $queryComponents[] = isset($queryComponents) ? " AND  $filter" : $filter;
             }
             return $queryComponents;
             
