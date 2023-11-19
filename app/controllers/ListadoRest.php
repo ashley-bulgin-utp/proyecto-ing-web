@@ -11,6 +11,7 @@
             $restArray = [];
             foreach ($restaurants as $rest) {
                 $restArray[] = [
+                    'res_id' => $rest->res_id,
                     'res_nombre' => $rest->res_nombre,
                     'res_imagen1' => $rest->res_imagen1,
                     'res_precio' => $rest->res_precio,
