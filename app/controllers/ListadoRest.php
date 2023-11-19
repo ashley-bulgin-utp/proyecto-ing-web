@@ -6,9 +6,6 @@
         }
 
         public function resultados($array = []) {
-            $data = [
-                'users',
-            ];
             $parameters = $this->getParameters();
             $restaurants = $this->restModel->getRestaurantes($parameters); // Fetch de Restaurante
             $restArray = [];
@@ -21,7 +18,7 @@
                     'dias_con_horas' => $this->cleanHorario($rest->dias_con_horas)
                 ];
             }
-            $this->view('resultados', $data);
+            $this->view('resultados', $restArray);
         }
 
         private function getParameters(){
