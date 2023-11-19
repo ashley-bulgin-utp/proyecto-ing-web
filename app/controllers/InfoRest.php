@@ -24,7 +24,8 @@
                     'precio' => $fetchObj -> res_precio,
                     'resena' => $fetchObj ->res_resena,
                     'ubicacion' => $fetchObj -> res_ubicacion,
-                    'tipoFacilidad' => $fetchObj -> tip_nombre,
+                    'tipoFacilidad' => $fetchObj -> facilidades,
+                    'descripcion' => $fetchObj -> desc_desc,
                     'horario' => $fetchObj -> dias_con_horas
                 ];
                 $this->view('infoRest', ['restauranteInfo'=>$restauranteInfo]);
