@@ -26,15 +26,15 @@
               <fieldset class="shadow bg-white filtrosContainer">
                 <legend>Tipo Comidas</legend>
                 <div class="checkOption">
-                  <input type="checkbox" name="comidas" id="asia" value="asia"> 
+                  <input type="checkbox" name="comidas" id="asia" value="Asiatica"> 
                   <label for="china">Asiatica</label>
                 </div>
                 <div class="checkOption">
-                  <input type="checkbox" name="comidas" id="panama" value="panama"> 
+                  <input type="checkbox" name="comidas" id="panama" value="Panameña"> 
                   <label for="panama">Panameña</label>
                 </div>
                 <div class="checkOption">
-                  <input type="checkbox" name="comidas" id="mexico" value="mexicana"> 
+                  <input type="checkbox" name="comidas" id="mexico" value="Mexicana"> 
                   <label for="mexicana">Mexicana</label>
                 </div>
               </fieldset>
@@ -42,15 +42,15 @@
               <fieldset class="shadow bg-white filtrosContainer">
                 <legend>Costo</legend>
                 <div class="checkOption">
-                    <input type="checkbox" name="costo" id="caro" value="caro"> 
+                    <input type="checkbox" name="costo" id="caro" value="Caro"> 
                     <label for="caro">Caro</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="costo" id="regular" value="regular"> 
+                    <input type="checkbox" name="costo" id="regular" value="Regular"> 
                     <label for="regular">Regular</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="costo" id="barato" value="barato"> 
+                    <input type="checkbox" name="costo" id="barato" value="Barato"> 
                     <label for="barato">Barato</label>
                 </div>
               </fieldset>
@@ -58,43 +58,43 @@
               <fieldset class="shadow bg-white filtrosContainer">
                 <legend>Ubicación</legend>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="bocasDelToro" value="bocas"> 
+                    <input type="checkbox" name="provincias" id="bocasDelToro" value="Bocas del toro"> 
                     <label for="bocasDelToro">Bocas del toro</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="cocle" value="cocle"> 
+                    <input type="checkbox" name="provincias" id="cocle" value="Coclé"> 
                     <label for="cocle">Coclé</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="colon" value="colon"> 
+                    <input type="checkbox" name="provincias" id="colon" value="Colón"> 
                     <label for="colon">Colón</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="chiriqui" value="chiriqui"> 
+                    <input type="checkbox" name="provincias" id="chiriqui" value="Chiriquí"> 
                     <label for="chiriqui">Chiriquí</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="darien" value="darien"> 
+                    <input type="checkbox" name="provincias" id="darien" value="Darién"> 
                     <label for="darien">Darién</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="herrera" value="herrera"> 
+                    <input type="checkbox" name="provincias" id="herrera" value="Herrera"> 
                     <label for="herrera">Herrera</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="losSantos" value="losSantos"> 
+                    <input type="checkbox" name="provincias" id="losSantos" value="Los Santos"> 
                     <label for="losSantos">Los Santos</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="panama" value="panama"> 
-                    <label for="panama">Panama</label>
+                    <input type="checkbox" name="provincias" id="panama" value="Panamá"> 
+                    <label for="panama">Panamá</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="panamaOeste" value="panamaOeste"> 
+                    <input type="checkbox" name="provincias" id="panamaOeste" value="Panama Oeste"> 
                     <label for="panamaOeste">Panama Oeste</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="provincias" id="veraguas" value="veraguas"> 
+                    <input type="checkbox" name="provincias" id="veraguas" value="Veraguas"> 
                     <label for="veraguas">Veraguas</label>
                 </div>
               </fieldset>
@@ -126,15 +126,15 @@
               <fieldset class="shadow bg-white filtrosContainer">
                 <legend>Tipo restaurante</legend>
                 <div class="checkOption">
-                    <input type="checkbox" name="tipoRes" id="restaurante" value="restaurante"> 
+                    <input type="checkbox" name="tipoRes" id="restaurante" value="Restaurante"> 
                     <label for="restaurante">Restaurante</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="tipoRes" id="fonda" value="fonda"> 
+                    <input type="checkbox" name="tipoRes" id="fonda" value="Fonda"> 
                     <label for="fonda">Fonda</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="tipoRes" id="cafeteria" value="cafeteria"> 
+                    <input type="checkbox" name="tipoRes" id="cafeteria" value="Cafeteria"> 
                     <label for="cafeteria">Cafeteria</label>
                 </div>
               </fieldset>
