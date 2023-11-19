@@ -18,7 +18,7 @@
                     'res_imagen1' => $rest->res_imagen1,
                     'res_precio' => $rest->res_precio,
                     'res_ubicacion' => $rest->res_ubicacion,
-                    'dias_con_horas' => $rest->dias_con_horas
+                    'dias_con_horas' => $this->cleanHorario($rest->dias_con_horas)
                 ];
             }
             $this->view('resultados', $data);
@@ -57,6 +57,27 @@
                 }
             }
             return $parameters;
+        }
+
+        private function cleanHorario($horario){
+            if(strlen($horario)>0){
+                $diasHorario = explode(",",$horario);
+                $diasHorario = explode(" ",$diasHorario[0]);
+
+                $aperturaTime = $diasHorario[3];
+                $dateTime = DateTime::createFromFormat('H:i:s.u', $aperturaTime);
+                $diasHorario[3] = $dateTime->format('H:i');
+    
+                $cierreTime = $diasHorario[5];
+                $dateTime = DateTime::createFromFormat('H:i:s.u', $cierreTime);
+                $diasHorario[5] = $dateTime->format('H:i');
+
+                $diasHorario[4] = 'a';
+                return implode(" ",$diasHorario);
+            }else{
+                return 'Horario no disponible';
+            }
+
         }
         
     }
