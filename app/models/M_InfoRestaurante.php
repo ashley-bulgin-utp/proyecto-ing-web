@@ -28,7 +28,7 @@
                 r.res_tipoRes,
                 r.res_resena,
                 r.res_ubicacion,
-                tf.tip_nombre,
+                GROUP_CONCAT(tf.tip_nombre SEPARATOR ', ') AS facilidades,
                 CONCAT(hd.hor_dia, ': ', GROUP_CONCAT(CONCAT(d.dis_hor_inicio, ' to ', d.dis_hor_cierre) SEPARATOR ', ')) AS dias_con_horas
             FROM 
                 restaurantes r
@@ -36,8 +36,10 @@
                 disponibilidad d ON r.res_id = d.dis_res_id
             LEFT JOIN 
                 horario_dia hd ON d.dis_hor_id = hd.hor_id
+            LEFT JOIN
+                rest_facilidades rf ON r.res_id = rf.rf_res_id
             LEFT JOIN 
-                tipo_facilidades tf ON r.res_tipoFacilidad = tf.tip_id
+                tipo_facilidades tf ON rf.rf_tip_id = tf.tip_id
             WHERE 
                 r.res_id = $id;
             ";
