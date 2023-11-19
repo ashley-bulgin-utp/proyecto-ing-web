@@ -15,8 +15,6 @@
                 $query = $this->setAllSelect();
                 $query = $query.' GROUP BY r.res_id'; 
             }
-
-
             $this->db->query($query);
             
             return $this->db->resultSet();
@@ -28,7 +26,12 @@
                 r.res_nombre as res_nombre,
                 r.res_imagen1 as res_imagen1,
                 r.res_precio as res_precio,
-                CONCAT(hd.hor_dia, ': ', GROUP_CONCAT(CONCAT(d.dis_hor_inicio, ' to ', d.dis_hor_cierre) SEPARATOR ', ')) AS dias_con_horas,
+                CONCAT(
+                GROUP_CONCAT(
+                    CONCAT(hd.hor_dia, ' ', d.dis_hor_inicio, ' a ', d.dis_hor_cierre) 
+                    ORDER BY FIELD(hd.hor_dia, 'Lunes a Viernes', 'Sábado', 'Domingo') SEPARATOR ', '
+                 )
+                )AS dias_con_horas,
                 r.res_ubicacion as res_ubicacion
             FROM 
                 restaurantes r
@@ -37,7 +40,9 @@
             LEFT JOIN 
                 horario_dia hd ON d.dis_hor_id = hd.hor_id
             LEFT JOIN 
-                tipo_facilidades tf ON r.res_tipoFacilidad = tf.tip_id
+                rest_facilidades rf ON r.res_id = rf.rf_res_id
+            LEFT JOIN 
+                tipo_facilidades tf ON rf.rf_tip_id = tf.tip_id
             WHERE ";
 
             return $query;
@@ -49,16 +54,19 @@
             r.res_nombre as res_nombre,
             r.res_imagen1 as res_imagen1,
             r.res_precio as res_precio,
-            CONCAT(hd.hor_dia, ': ', GROUP_CONCAT(CONCAT(d.dis_hor_inicio, ' to ', d.dis_hor_cierre) SEPARATOR ', ')) AS dias_con_horas,
+            CONCAT(
+                GROUP_CONCAT(
+                    CONCAT(hd.hor_dia, ' ', d.dis_hor_inicio, ' a ', d.dis_hor_cierre) 
+                    ORDER BY FIELD(hd.hor_dia, 'Lunes a Viernes', 'Sábado', 'Domingo') SEPARATOR ', '
+                 )
+            ) AS dias_con_horas,
             r.res_ubicacion as res_ubicacion
             FROM 
                 restaurantes r
             LEFT JOIN 
                 disponibilidad d ON r.res_id = d.dis_res_id
             LEFT JOIN 
-                horario_dia hd ON d.dis_hor_id = hd.hor_id
-            LEFT JOIN 
-                tipo_facilidades tf ON r.res_tipoFacilidad = tf.tip_id";
+                horario_dia hd ON d.dis_hor_id = hd.hor_id";
 
             return $query;
         }
@@ -68,7 +76,16 @@
                 $columnName = $this->getColumnName($name);
                 if (is_array($value)) {
                     $inClause = "'" . implode("', '", $value) . "'";
-                    $filter = "$columnName IN ($inClause)";
+                    if($name != "facilidades"){
+                        $filter = "$columnName IN ($inClause)";
+                    }{
+                        $filter = "";
+                        foreach ($value as $index => $facility) {
+                            $this->facilidadFiltro($index + 1, $facility);
+                            $filter .= $this->facilidadFiltro($index + 1, $facility);
+                            $filter = ($index === 0) ? ($filter . " AND ") : $filter;
+                        }                       
+                    }
                 } else {
                     $filter = "$columnName = '$value'";
                 }
@@ -78,6 +95,15 @@
             }
             return $queryComponents;
             
+        }
+        private function facilidadFiltro($index,$value){
+            $filtro = "r.res_id IN(
+                SELECT rf$index.rf_res_id
+                FROM rest_facilidades rf$index
+                JOIN tipo_facilidades tf$index ON rf$index.rf_tip_id = tf$index.tip_id
+                WHERE tf$index.tip_nombre = '$value'
+            )" ;
+            return $filtro;
         }
 
         private function getColumnName($name){
