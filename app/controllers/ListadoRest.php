@@ -61,16 +61,14 @@
             if(strlen($horario)>0){
                 $diasHorario = explode(",",$horario);
                 $diasHorario = explode(" ",$diasHorario[0]);
-
                 $aperturaTime = $diasHorario[3];
                 $dateTime = DateTime::createFromFormat('H:i:s.u', $aperturaTime);
                 $diasHorario[3] = $dateTime->format('H:i');
-    
+        
                 $cierreTime = $diasHorario[5];
                 $dateTime = DateTime::createFromFormat('H:i:s.u', $cierreTime);
                 $diasHorario[5] = $dateTime->format('H:i');
 
-                $diasHorario[4] = 'a';
                 return implode(" ",$diasHorario);
             }else{
                 return 'Horario no disponible';
