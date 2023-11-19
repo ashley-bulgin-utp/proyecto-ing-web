@@ -7,33 +7,80 @@
         }
 
         public function getRestaurantes($filtros) {
-            $query = "SELECT res_nombre,res_imagen1,res_precio,ubicacion";
-            $this->db->query("SELECT * FROM usuarios");
+            if(count($filtros)>0){
+                $query = $this->setSelect();
+                $query = $query.implode(' ', $this->setQueryFilter(($filtros)));
+                $query = $query.' GROUP BY r.res_id'; 
+                echo $query;
+            }else{
+                $query = $this->setAllSelect();
+                $query = $query.' GROUP BY r.res_id'; 
+            }
+
+
+            $this->db->query($query);
             
             return $this->db->resultSet();
         }
 
+        private function setSelect(){
+            $query = "SELECT 
+                r.res_nombre as res_nombre,
+                r.res_imagen1 as res_imagen1,
+                r.res_precio as res_precio,
+                CONCAT(hd.hor_dia, ': ', GROUP_CONCAT(CONCAT(d.dis_hor_inicio, ' to ', d.dis_hor_cierre) SEPARATOR ', ')) AS dias_con_horas,
+                r.res_ubicacion as res_ubicacion
+            FROM 
+                restaurantes r
+            LEFT JOIN 
+                disponibilidad d ON r.res_id = d.dis_res_id
+            LEFT JOIN 
+                horario_dia hd ON d.dis_hor_id = hd.hor_id
+            LEFT JOIN 
+                tipo_facilidades tf ON r.res_tipoFacilidad = tf.tip_id
+            WHERE ";
+
+            return $query;
+        }
+
+        private function setAllSelect(){
+            $query = "SELECT 
+            r.res_nombre as res_nombre,
+            r.res_imagen1 as res_imagen1,
+            r.res_precio as res_precio,
+            CONCAT(hd.hor_dia, ': ', GROUP_CONCAT(CONCAT(d.dis_hor_inicio, ' to ', d.dis_hor_cierre) SEPARATOR ', ')) AS dias_con_horas,
+            r.res_ubicacion as res_ubicacion
+            FROM 
+                restaurantes r
+            LEFT JOIN 
+                disponibilidad d ON r.res_id = d.dis_res_id
+            LEFT JOIN 
+                horario_dia hd ON d.dis_hor_id = hd.hor_id
+            LEFT JOIN 
+                tipo_facilidades tf ON r.res_tipoFacilidad = tf.tip_id";
+
+            return $query;
+        }
+
         private function setQueryFilter($filtros){
             foreach ($filtros as $name => $value) {
-                foreach ($filtros as $name => $value) {
-                    $columnName = $this->getColumnName($name);
-                    if (is_array($value)) {
-                        $inClause = "'" . implode("', '", $value) . "'";
-                        $filter = "$columnName IN ($inClause)";
-                    } else {
-                        $filter = "$columnName = $value";
-                    }
-                
-                    //Construye la query
-                    $queryComponents[] = isset($queryComponents) ? "AND $filter" : $filter;
+                $columnName = $this->getColumnName($name);
+                if (is_array($value)) {
+                    $inClause = "'" . implode("', '", $value) . "'";
+                    $filter = "$columnName IN ($inClause)";
+                } else {
+                    $filter = "$columnName = '$value'";
                 }
+            
+                //Construye la query
+                $queryComponents[] = isset($queryComponents) ? "AND $filter" : $filter;
             }
             return $queryComponents;
             
         }
 
         private function getColumnName($name){
-            $columnName;
+            $columnName='';
             switch($name){
                 case 'comidas':
                     $columnName = 'r.res_tipoComida';
@@ -56,7 +103,7 @@
                 default:
                     break;
             }
-
+            return $columnName;
         }
     }
 ?>
