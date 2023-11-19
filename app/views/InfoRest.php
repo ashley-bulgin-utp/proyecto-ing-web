@@ -13,7 +13,7 @@
 <body>
     <div id="menu"></div>
     <main class="container-fluid">
-        <a href="../ListadoRest/resultados.html" class="btn d-none d-sm-inline-block" id="returnBtn"><i class="fa-solid fa-arrow-left fa-2xl"></i></a>
+        <a href="<?php echo URLROOT; ?>/ListadoRest/resultados?" class="btn d-none d-sm-inline-block" id="returnBtn"><i class="fa-solid fa-arrow-left fa-2xl"></i></a>
         <div id="infoRestaContainer" class="container-fluid">
             <div class="topRestaurante row container-fluid justify-content-center">
                 <div class="topMain">
