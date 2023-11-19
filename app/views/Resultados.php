@@ -185,7 +185,7 @@
                                 <p class="card-text horario"><?php echo $rest['horario']; ?></p>
                                 <p class="card-text ubicacion"><?php echo $rest['ubicacion']; ?></p>
                                 <div class="expandContainer">
-                                    <a href="?restId=<?php echo $rest['id']; ?>" class="btn expandBtn justify-content-end">Ver más</a>
+                                    <a href="<?php echo URLROOT; ?>/InfoRest/info/?restId=<?php echo $rest['id']; ?>" class="btn expandBtn justify-content-end">Ver más</a>
                                 </div>
                             </div>
                         </div>
