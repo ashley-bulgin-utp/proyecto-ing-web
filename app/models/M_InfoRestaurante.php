@@ -29,7 +29,7 @@
                 r.res_resena,
                 r.res_ubicacion,
                 descrip.desc_desc,
-                GROUP_CONCAT(tf.tip_nombre SEPARATOR ', ') AS facilidades,
+                GROUP_CONCAT( DISTINCT tf.tip_nombre SEPARATOR ', ') AS facilidades,
                 CONCAT(hd.hor_dia, ': ', GROUP_CONCAT(CONCAT(d.dis_hor_inicio, ' to ', d.dis_hor_cierre) SEPARATOR ', ')) AS dias_con_horas
             FROM 
                 restaurantes r
