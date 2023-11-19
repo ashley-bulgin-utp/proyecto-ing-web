@@ -11,15 +11,15 @@
             $restArray = [];
             foreach ($restaurants as $rest) {
                 $restArray[] = [
-                    'res_id' => $rest->res_id,
-                    'res_nombre' => $rest->res_nombre,
-                    'res_imagen1' => $rest->res_imagen1,
-                    'res_precio' => $rest->res_precio,
-                    'res_ubicacion' => $rest->res_ubicacion,
-                    'dias_con_horas' => $this->cleanHorario($rest->dias_con_horas)
+                    'id' => $rest->res_id,
+                    'nombre' => $rest->res_nombre,
+                    'imagen1' => $rest->res_imagen1,
+                    'precio' => $rest->res_precio,
+                    'ubicacion' => $rest->res_ubicacion,
+                    'horario' => $this->cleanHorario($rest->dias_con_horas)
                 ];
             }
-            $this->view('resultados', $restArray);
+            $this->view('resultados', ["restaurantes"=>$restArray]);
         }
 
         private function getParameters(){
