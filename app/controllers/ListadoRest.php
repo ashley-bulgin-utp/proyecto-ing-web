@@ -10,17 +10,6 @@
                 'users',
             ];
             $parameters = $this->getParameters();
-            // Output the parameters with their values
-            foreach ($parameters as $key => $value) {
-                if (is_array($value)) {
-                    foreach ($value as $val) {
-                        echo $key . ': ' . $val . '<br>';
-                    }
-                } else {
-                    echo $key . ': ' . $value . '<br>';
-                }
-            }
-
             $restaurants = $this->restModel->getRestaurantes($parameters); // Fetch de Restaurante
             $restArray = [];
             foreach ($restaurants as $rest) {
@@ -29,8 +18,8 @@
                     'res_imagen1' => $rest->res_imagen1,
                     'res_precio' => $rest->res_precio,
                     'res_ubicacion' => $rest->res_ubicacion,
+                    'dias_con_horas' => $rest->dias_con_horas
                 ];
-                echo "$rest->res_nombre $rest->res_imagen1 $rest->res_precio $rest->res_ubicacion <br>";
             }
             $this->view('resultados', $data);
         }
