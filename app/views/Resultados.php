@@ -171,7 +171,20 @@
         <div class="container-fluid col">
           <h2>Restaurantes encontrados</h2>
           <div id="results" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center justify-content-md-start">
-            
+            <?php foreach ($data["restaurantes"] as $rest): ?>
+                <div class="card col shadow rounded restauranteCard">
+                     <img src="<?php echo $rest['imagen1']; ?>" alt="Restaurante <?php echo $rest['nombre']; ?>" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $rest['nombre']; ?></h5>
+                            <p class="card-text precio"><?php echo $rest['precio']; ?></p>
+                            <p class="card-text horario"><?php echo $rest['horario']; ?></p>
+                            <p class="card-text ubicacion"><?php echo $rest['ubicacion']; ?></p>
+                            <div class="expandContainer">
+                                <a href="../infoRest/restaurante.html?restId=<?php echo $rest['id']; ?>" class="btn expandBtn justify-content-end">Ver más</a>
+                            </div>
+                        </div>
+                </div>
+            <?php endforeach; ?>
          </div>
         </div>
     </main>
