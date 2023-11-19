@@ -11,7 +11,6 @@
                 $query = $this->setSelect();
                 $query = $query.implode(' ', $this->setQueryFilter(($filtros)));
                 $query = $query.' GROUP BY r.res_id'; 
-                echo $query;
             }else{
                 $query = $this->setAllSelect();
                 $query = $query.' GROUP BY r.res_id'; 
@@ -25,6 +24,7 @@
 
         private function setSelect(){
             $query = "SELECT 
+                r.res_id as res_id,
                 r.res_nombre as res_nombre,
                 r.res_imagen1 as res_imagen1,
                 r.res_precio as res_precio,
@@ -45,6 +45,7 @@
 
         private function setAllSelect(){
             $query = "SELECT 
+            r.res_id as res_id,
             r.res_nombre as res_nombre,
             r.res_imagen1 as res_imagen1,
             r.res_precio as res_precio,
