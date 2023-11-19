@@ -13,11 +13,12 @@
 <body>
     <div id="menu"></div>
     <main class="container-fluid">
-        <a href="../ListadoRest/resultados.html" class="btn d-none d-sm-inline-block" id="returnBtn"><i class="fa-solid fa-arrow-left fa-2xl"></i></a>
+        <a href="<?php echo URLROOT; ?>/ListadoRest/resultados?" class="btn d-none d-sm-inline-block" id="returnBtn"><i class="fa-solid fa-arrow-left fa-2xl"></i></a>
         <div id="infoRestaContainer" class="container-fluid">
             <div class="topRestaurante row container-fluid justify-content-center">
                 <div class="topMain">
-                    <h1 class="text-center" id="titulo">Nombre del restaurante</h1>
+                    <?php $rest = $data["restauranteInfo"];?>
+                    <h1 class="text-center" id="titulo"><?php echo $rest['nombre']; ?></h1>
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -26,13 +27,13 @@
                         </div>
                         <div class="carousel-inner">
                           <div class="carousel-item active c-item">
-                            <img src="<?php echo URLROOT; ?>/assets/InfoRest/1.png" class="d-block  c-img" alt="restaurante-image">
+                            <img src="<?php echo $rest['imagen1']?>" class="d-block  c-img" alt="restaurante-image">
                           </div>
                           <div class="carousel-item c-item">
-                            <img src="<?php echo URLROOT; ?>/assets/InfoRest/2.png" class="d-block  c-img" alt="restaurante-image">
+                            <img src="<?php echo $rest['imagen2']?>" class="d-block  c-img" alt="restaurante-image">
                           </div>
                           <div class="carousel-item c-item">
-                            <img src="<?php echo URLROOT; ?>/assets/InfoRest/3.png" class="d-block  c-img" alt="restaurante-image">
+                            <img src="<?php echo $rest['imagen3']?>" class="d-block  c-img" alt="restaurante-image">
                           </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -55,11 +56,21 @@
                 <h2>Descripcion</h2>
                 <p id="descripcion">Lorem ipsum dolor sit amet.</p>
                 <h2>Ubicacion</h2>
-                <p id="ubicacion">Lorem ipsum dolor sit amet.</p>
+                <p id="ubicacion">Provincia de <?php echo $rest['ubicacion'];?></p>
                 <h2>Caracteristicas</h2>
-                <p id="caracteristicas">Lorem ipsum dolor sit amet.</p>
+                <ul>
+                    <li>Tipo de local: <?php echo $rest['tipoRes'];?></li>
+                    <li>Tipo de comida <?php echo $rest['tipoComida'];?> </li>
+                    <li>Pecio Platillos: <?php echo $rest['precio']?></li>
+                    <li>Calificacion de <?php echo $rest['resena'];?> estrellas</li>
+                    <li>Horario: <?php echo $rest['horario'];?></li>
+                    <li>Facilidades: <?php echo $rest['tipoFacilidad'];?></li>
+                </ul>
                 <h2>Contacto</h2>
-                <p id="contacto">Lorem ipsum dolor sit amet.</p>
+                <ul>
+                    <li>Correo: <?php echo $rest['correo'];?> </li>
+                    <li>Telefono: <?php echo $rest['tel'];?></li>
+                </ul>
                 <div class="container-fluid d-flex justify-content-end">
                     <a href="/client/VHMReserva/HacerReserva.html">
                         <button class="btn btn-secondary shadow rounded" id="reservarBtn">Reservar</button>
