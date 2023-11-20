@@ -30,7 +30,12 @@
                 r.res_ubicacion,
                 descrip.desc_desc,
                 GROUP_CONCAT( DISTINCT tf.tip_nombre SEPARATOR ', ') AS facilidades,
-                CONCAT(hd.hor_dia, ': ', GROUP_CONCAT(CONCAT(d.dis_hor_inicio, ' to ', d.dis_hor_cierre) SEPARATOR ', ')) AS dias_con_horas
+                CONCAT(
+                GROUP_CONCAT( DISTINCT
+                    CONCAT(hd.hor_dia, ' ', d.dis_hor_inicio, ' a ', d.dis_hor_cierre) 
+                    ORDER BY FIELD(hd.hor_dia, 'Lunes a Viernes', 'Sábado', 'Domingo') SEPARATOR ', '
+                 )
+            ) AS dias_con_horas
             FROM 
                 restaurantes r
             LEFT JOIN 
