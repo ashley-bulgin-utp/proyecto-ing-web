@@ -46,15 +46,11 @@
                         </button>
                     </div>
                 </div>
-                
-                <!-- <div style="width: 300px; height: 200px; background-color: gray;">
-                </div> -->
-                
 
             </div>
             <div class="contenido row container-fluid p-0 p-sm-5">
                 <h2>Descripcion</h2>
-                <p id="descripcion">Lorem ipsum dolor sit amet.</p>
+                <p id="descripcion"><?php echo $rest['descripcion'];?></p>
                 <h2>Ubicacion</h2>
                 <p id="ubicacion">Provincia de <?php echo $rest['ubicacion'];?></p>
                 <h2>Caracteristicas</h2>

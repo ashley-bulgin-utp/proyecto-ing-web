@@ -24,7 +24,8 @@
                     'precio' => $fetchObj -> res_precio,
                     'resena' => $fetchObj ->res_resena,
                     'ubicacion' => $fetchObj -> res_ubicacion,
-                    'tipoFacilidad' => $fetchObj -> tip_nombre,
+                    'tipoFacilidad' => $fetchObj -> facilidades,
+                    'descripcion' => $fetchObj -> desc_desc,
                     'horario' => $fetchObj -> dias_con_horas
                 ];
                 $this->view('infoRest', ['restauranteInfo'=>$restauranteInfo]);
@@ -35,18 +36,32 @@
         private function cleanHorario($horario){
             if(strlen($horario)>0){
                 $diasHorario = explode(",",$horario);
-                $diasHorario = explode(" ",$diasHorario[0]);
+                foreach($diasHorario as $dia => $value){
+                    if ($dia === array_key_first($diasHorario)) {
+                        $value = explode(" ",$value);
+                        $aperturaTime = $value[3];
+                        $dateTime = DateTime::createFromFormat('H:i:s.u', $aperturaTime);
+                        $value[3] = $dateTime->format('H:i');
 
-                $aperturaTime = $diasHorario[3];
-                $dateTime = DateTime::createFromFormat('H:i:s.u', $aperturaTime);
-                $diasHorario[3] = $dateTime->format('H:i');
-    
-                $cierreTime = $diasHorario[5];
-                $dateTime = DateTime::createFromFormat('H:i:s.u', $cierreTime);
-                $diasHorario[5] = $dateTime->format('H:i');
+                        $cierreTime = $value[5];
+                        $dateTime = DateTime::createFromFormat('H:i:s.u', $cierreTime);
+                        $value[5] = $dateTime->format('H:i');
+                        $diasHorario[$dia] = implode(" ",$value);
 
-                $diasHorario[4] = 'a';
-                return implode(" ",$diasHorario);
+                    }else{
+                        $value = explode(" ",$value);
+                        $aperturaTime = $value[2];
+                        $dateTime = DateTime::createFromFormat('H:i:s.u', $aperturaTime);
+                        $value[2] = $dateTime->format('H:i');
+
+                        $cierreTime = $value[4];
+                        $dateTime = DateTime::createFromFormat('H:i:s.u', $cierreTime);
+                        $value[4] = $dateTime->format('H:i');
+                        $diasHorario[$dia] = implode(" ",$value);
+                    }
+
+                }
+                return implode(", ",$diasHorario);
             }else{
                 return 'Horario no disponible';
             }

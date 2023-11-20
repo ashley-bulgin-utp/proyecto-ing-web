@@ -142,7 +142,7 @@
               <fieldset class="shadow bg-white filtrosContainer">
                 <legend>Facilidades</legend>
                 <div class="checkOption">
-                    <input type="checkbox" name="facilidades" id="sillaBebe" value="sillaBebe"> 
+                    <input type="checkbox" name="facilidades" id="sillaBebe" value="silla Bebe"> 
                     <label for="sillaBebe">Silla bebe</label>
                 </div>
                 <div class="checkOption">
@@ -150,11 +150,11 @@
                     <label for="cambiador">Cambiador</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="facilidades" id="menuInfante" value="menuInfante"> 
+                    <input type="checkbox" name="facilidades" id="menuInfante" value="menu de niños"> 
                     <label for="menuInfante">Menu de niños</label>
                 </div>
                 <div class="checkOption">
-                    <input type="checkbox" name="facilidades" id="accesibilidad" value="accesibilidad"> 
+                    <input type="checkbox" name="facilidades" id="accesibilidad" value="Accesible para discapacitados"> 
                     <label for="accesibilidad">Accesible para discapacitados</label>
                 </div>
                 <div class="checkOption">
