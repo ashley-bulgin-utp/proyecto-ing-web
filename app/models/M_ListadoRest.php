@@ -16,7 +16,7 @@
                 $query = $query.' GROUP BY r.res_id'; 
             }
             $this->db->query($query);
-            
+            echo $query;
             return $this->db->resultSet();
         }
 
@@ -44,7 +44,6 @@
             LEFT JOIN 
                 tipo_facilidades tf ON rf.rf_tip_id = tf.tip_id
             WHERE ";
-
             return $query;
         }
 
@@ -78,15 +77,16 @@
                     $inClause = "'" . implode("', '", $value) . "'";
                     if($name != "facilidades"){
                         $filter = "$columnName IN ($inClause)";
-                    }{
+                    }else{
                         $filter = "";
                         foreach ($value as $index => $facility) {
                             $this->facilidadFiltro($index + 1, $facility);
                             $newFilter = $this->facilidadFiltro($index + 1, $facility);
                             $newFilter = ($index === 0) ?  $newFilter : (" AND ".$newFilter );
                             $filter .= $newFilter;
-                        }                       
+                        }                    
                     }
+                    echo $filter;   
                 } else {
                     $filter = "$columnName = '$value'";
                 }
