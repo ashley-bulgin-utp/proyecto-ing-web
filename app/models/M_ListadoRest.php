@@ -16,7 +16,6 @@
                 $query = $query.' GROUP BY r.res_id'; 
             }
             $this->db->query($query);
-            echo $query;
             return $this->db->resultSet();
         }
 
@@ -86,7 +85,6 @@
                             $filter .= $newFilter;
                         }                    
                     }
-                    echo $filter;   
                 } else {
                     $filter = "$columnName = '$value'";
                 }
