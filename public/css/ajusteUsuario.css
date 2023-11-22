@@ -30,8 +30,14 @@
 .perfil, .perfil img {
     width: 23rem;
     height: 23rem;
-    border-radius: 1rem;
     object-fit: cover;
+}
+
+.profile_img {
+    width: 23rem;
+    height: 23rem;
+    border-radius: 50%;
+    background: #F1F1F1;
 }
 
 .upload .ajustarPerfil{
