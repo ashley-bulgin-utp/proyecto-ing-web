@@ -35,6 +35,10 @@
                     <input type="text" id="name" required>
                 </div>
                 <div class="field-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" required>
+                </div>
+                <div class="field-group">
                     <label for="email">Correo electrónico</label>
                     <input type="email" id="email" required>
                 </div>

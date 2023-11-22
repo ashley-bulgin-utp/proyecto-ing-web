@@ -78,29 +78,6 @@
     </main>
     <div id="footer"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(function(){
-            $("#menu").load("/client/components/Menu/Menu.html");
-        });
-        $(function(){
-            $("#footer").load("/client/components/Footer/Footer.html");
-        });
-
-        function checkFile(input) {
-            const file = input.files[0];
-            const maxSize = 5 * 1024 * 1024; // 5MB in bytes
-
-            if (file) {
-                if (file.size > maxSize) {
-                    document.getElementById('fileSizeError').style.display = 'block';
-                    input.value = ''; // Clear the input field
-                } else {
-                    document.getElementById('fileSizeError').style.display = 'none';
-                }
-              }
-        }
-    </script>
 </body>
 </html>
 <?php require APPROOT.'/views/includes/components/Footer.php' ?>

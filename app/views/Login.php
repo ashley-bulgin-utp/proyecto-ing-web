@@ -15,11 +15,15 @@
     <section id="loginsec">
         <aside>
             <h1>Bienvenido</h1>
-            <form>
+            <form action="<?php echo URLROOT; ?>/Login/login/1" method="POST">
                 <label for="logmail">Correo electrónico</label><br>
-                <input type="email" id="logmail" name="logmail" class="input"><br>
+                <input type="email" id="logmail" name="logmail" class="input" value="<?php echo $data['logmail'];?>" ><br>
+                <p class="invalid" style="color: red"><?php echo $data['logmail_err'];?></p>
+
                 <label for="logpass">Contraseña</label><br>
-                <input type="password" id="logpass" name="logpass" class="input">
+                <input type="password" id="logpass" name="logpass" class="input" value="<?php echo $data['logpass'];?>" >
+                <p class="invalid" style="color: red"><?php echo $data['logpass_err'];?></p>
+
                 <p id="grey">¿Olvidó su contraseña?</p><br><br>
 
                 <button>

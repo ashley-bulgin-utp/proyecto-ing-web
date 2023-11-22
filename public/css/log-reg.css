@@ -125,3 +125,7 @@ table{
     border: none;
 }
 
+span .invalid {
+    color: red;
+}
+
