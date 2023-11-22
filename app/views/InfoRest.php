@@ -6,7 +6,6 @@
     <title>Info restaurante</title>
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/infoRest.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/35b83aded8.js" crossorigin="anonymous"></script>
     <script src="restaurante.js" defer type="module"></script>
 </head>
@@ -68,7 +67,7 @@
                     <li>Telefono: <?php echo $rest['tel'];?></li>
                 </ul>
                 <div class="container-fluid d-flex justify-content-end">
-                    <a href="/client/VHMReserva/HacerReserva.html">
+                    <a href="../../HacerReserva/hacer/<?php echo $_SESSION['user_id'] ?>">
                         <button class="btn btn-secondary shadow rounded" id="reservarBtn">Reservar</button>
                     </a>
                     

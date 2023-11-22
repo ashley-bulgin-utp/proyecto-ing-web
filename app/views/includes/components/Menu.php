@@ -17,7 +17,7 @@
             <!-- <i class="fa-regular fa-user"></i> -->
             <?php
                 if (isset($_SESSION['user_image'])) {
-                    echo "<img class='user_profile_img' src='../../assets/Menu/{$_SESSION['user_image']}' alt='user'>";
+                    echo "<img class='user_profile_img' src='{$_SESSION['user_image']}' alt='user'>";
                 } else {
                     echo "<img class='user_profile_img' src='../../assets/Menu/blank-profile.png' alt='user'>";
                 }
@@ -27,7 +27,7 @@
             </a>
             <!-- Dropdown Menu -->
             <ul class="dropdown-menu nav-item dropdown" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="../../AjusteUsuario/ajuste/1">Ajustar Perfil</a></li>
+                <li><a class="dropdown-item" href="../../AjusteUsuario/ajuste/<?php echo $_SESSION['user_id'] ?>">Ajustar Perfil</a></li>
                 <li><a class="dropdown-item" href="../../Login/login/1">Cerrar Sesión</a></li>
             </ul>
         </div>
@@ -36,7 +36,7 @@
         <ul class="menu-list">
             <li><a href="../../Home/home/1">Home</a></li>
             <li><a href="../../ListadoRest/resultados/1">Lista de Restaurantes</a></li>
-            <li><a href="../../MisReservas/misReservas/1">Mis Reservas</a></li>
+            <li><a href="../../MisReservas/misReservas/<?php echo $_SESSION['user_id'] ?>">Mis Reservas</a></li>
             <li><a href="../../AcercadePag/about/1">Acerca de la Página</a></li>
         </ul>
     </section>
