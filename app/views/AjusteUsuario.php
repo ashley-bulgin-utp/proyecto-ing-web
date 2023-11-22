@@ -1,4 +1,7 @@
-<?php require APPROOT.'/views/includes/components/Menu.php' ?>
+<?php require APPROOT.'/views/includes/components/Menu.php'; 
+    $profileData = $data['profileData'];
+    $userData = $data['userData'];
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,8 +24,8 @@
                 <div class="upload">
                     <form action="<?php echo URLROOT; ?>/AjusteUsuario/ajuste"<?php echo $_SESSION['user_id'] ?> class="ajustarPerfil" method="POST" enctype="multipart/form-data">
                         <label for="imageUpload">Subir Archivo | <i class="fa-solid fa-cloud-arrow-up"></i></label>
-                        <input type="file" id="imageUpload" name="image" accept=".jpeg, .jpg, .png" value="<?php echo $data['image'] ?>" required>
-                        <p style="color: red;"><?php echo $data['image_err'] ?></p>
+                        <input type="file" id="imageUpload" name="image" accept=".jpeg, .jpg, .png" value="<?php echo $profileData['image'] ?>" required>
+                        <p style="color: red;"><?php echo $profileData['image_err'] ?></p>
                         <p>Archivos aceptados: (.jpeg, .jpg, .png, max 5MB)</p>
                         <p id="fileSizeError" style="color: red; display: none;">File size exceeds the limit (5MB).</p>
                     </form>
@@ -33,24 +36,26 @@
             <form action="">
                 <div class="field-group">
                     <label for="name">Nombre</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" name="name" value="<?php echo $userData['usu_nombre'] ?>">
+                    <p style="color: red;"><?php echo $userData['usu_nombre_err'] ?></p>
                 </div>
                 <div class="field-group">
                     <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" required>
-                </div>
-                <div class="field-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="field-group">
-                    <label for="telephone">Teléfono</label>
-                    <input type="tel" id="telephone" required>
+                    <input type="text" id="apellido" name="apellido">
                 </div>
                 <div class="field-group">
                     <label for="password">Contraseña</label>
-                    <input type="password" id="password" required>
+                    <input type="password" id="password" name="password">
                 </div>
+                <div class="field-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" >
+                </div>
+                <div class="field-group">
+                    <label for="telephone">Teléfono</label>
+                    <input type="tel" id="telephone" name="telephone">
+                </div>
+                
                 <div class="botones">
                     <button type="submit" class="btn-cancelar" onclick="this.form.reset();">Cancelar</button>
                     <button type="submit" class="btn-guardar">Guardar</button>
