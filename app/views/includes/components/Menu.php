@@ -14,9 +14,16 @@
             <img src="<?php echo URLROOT; ?>/assets/Menu/logo-rojo.png" alt="logo">
         </div>
         <div class="user_profile">
-            <i class="fa-regular fa-user"></i>
+            <!-- <i class="fa-regular fa-user"></i> -->
+            <?php
+                if (isset($_SESSION['user_image'])) {
+                    echo "<img class='user_profile_img' src='../../assets/Menu/{$_SESSION['user_image']}' alt='user'>";
+                } else {
+                    echo "<img class='user_profile_img' src='../../assets/Menu/blank-profile.png' alt='user'>";
+                }
+            ?>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Nombre
+                <?php echo ($_SESSION['user_name']) ?>
             </a>
             <!-- Dropdown Menu -->
             <ul class="dropdown-menu nav-item dropdown" aria-labelledby="navbarDropdownMenuLink">

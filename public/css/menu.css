@@ -36,6 +36,13 @@ body {
     gap: 1rem;
 }
 
+.user_profile_img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #F1F1F1;
+}
+
 .fa-caret-down:hover {
     cursor: pointer;
 }
