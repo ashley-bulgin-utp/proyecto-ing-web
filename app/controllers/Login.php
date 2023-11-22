@@ -45,7 +45,7 @@
                     if($loggedInUser) {
                         // Usuario autenticado
                         // Crear session
-                        die('EXITO');
+                        redirect('Home/home/1');
                     } else {
                         $data['logpass_err'] = 'Contraseña incorrecta';
                         $this->view('login', $data);

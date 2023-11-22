@@ -73,7 +73,7 @@
 
                     // Registrar usuario
                     if($this->userModel->registrarUsuario($data)) {
-                        header('location: ' . URLROOT . '/Login/login/1');
+                        redirect('Login/login/1');
                     } else {
                         die('Algo salió mal');
                     }
