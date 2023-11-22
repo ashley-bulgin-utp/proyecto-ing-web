@@ -16,6 +16,7 @@
           </form>
       </div>
     <main>
+        <?php var_dump($_SESSION['user_image']) ?>
         <h2>Los mejores restaurantes</h2>
         <div class="topRestaurante row container-fluid justify-content-center">
             <div class="topMain">

@@ -1,7 +1,8 @@
 <?php
     // Load helpers
     require_once 'helpers/URL_Helper.php';
-    
+    require_once 'helpers/Session_Helper.php';
+
     // Load config
     require_once 'config/config.php';
     

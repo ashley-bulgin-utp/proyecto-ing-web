@@ -45,7 +45,7 @@
                     if($loggedInUser) {
                         // Usuario autenticado
                         // Crear session
-                        redirect('Home/home/1');
+                        $this->createUserSession($loggedInUser);
                     } else {
                         $data['logpass_err'] = 'Contraseña incorrecta';
                         $this->view('login', $data);
@@ -70,6 +70,29 @@
                 // Cargar vista
                 $this->view('login', $data);
             }
+        }
+
+        // Creacion de sesiones
+        public function createUserSession($user) {
+            $_SESSION['user_id'] = $user->usu_id;
+            $_SESSION['user_name'] = $user->usu_nombre;
+            $_SESSION['user_lastname'] = $user->usu_apellido;
+            $_SESSION['user_email'] = $user->usu_correo;
+            $_SESSION['user_phone'] = $user->usu_telefono;
+            $_SESSION['user_image'] = $user->usu_imagen;
+            redirect('Home/home/{$user->usu_id}');
+        }
+
+        // Cerrar sesion
+        public function logout($user) {
+            unset($_SESSION['user_id']);
+            unset($_SESSION['user_name']);
+            unset($_SESSION['user_lastname']);
+            unset($_SESSION['user_email']);
+            unset($_SESSION['user_phone']);
+            unset($_SESSION['user_image']);
+            session_destroy();
+            redirect('Login/login/1');
         }
     }
 ?>
