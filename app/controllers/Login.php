@@ -80,7 +80,7 @@
             $_SESSION['user_email'] = $user->usu_correo;
             $_SESSION['user_phone'] = $user->usu_telefono;
             $_SESSION['user_image'] = $user->usu_imagen;
-            redirect('Home/home/{$user->usu_id}');
+            redirect("Home/home/{$user->usu_id}");
         }
 
         // Cerrar sesion
