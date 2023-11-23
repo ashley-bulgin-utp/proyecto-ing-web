@@ -22,7 +22,7 @@
                     <img class="profile_img" src="<?php echo URLROOT; ?>/assets/AjusteUsuario/placeholderProfile.png" alt="Foto de perfil">
                 </div>
                 <div class="upload">
-                    <form action="<?php echo URLROOT; ?>/AjusteUsuario/ajuste"<?php echo $_SESSION['user_id'] ?> class="ajustarPerfil" method="POST" enctype="multipart/form-data">
+                    <form action="<?php echo URLROOT; ?>/AjusteUsuario/ajuste <?php echo $_SESSION['user_id'] ?>" class="ajustarPerfil" method="POST" enctype="multipart/form-data">
                         <label for="imageUpload">Subir Archivo | <i class="fa-solid fa-cloud-arrow-up"></i></label>
                         <input type="file" id="imageUpload" name="image" accept=".jpeg, .jpg, .png" value="<?php echo $profileData['image'] ?>" required>
                         <p style="color: red;"><?php echo $profileData['image_err'] ?></p>
@@ -33,27 +33,31 @@
         </div>
         <div id="ajustarInfo">
             <h1>Ajustes de Perfil</h1>
-            <form action="">
+            <form action="<?php echo URLROOT; ?>/AjusteUsuario/ajuste/<?php echo $_SESSION['user_id'] ?>" method="POST">
                 <div class="field-group">
                     <label for="name">Nombre</label>
                     <input type="text" id="name" name="name" value="<?php echo $userData['usu_nombre'] ?>">
-                    <p style="color: red;"><?php echo $userData['usu_nombre_err'] ?></p>
+                    <p style="color: red;"><?php echo ($userData['usu_nombre_err']) ?></p>
                 </div>
                 <div class="field-group">
                     <label for="apellido">Apellido</label>
-                    <input type="text" id="apellido" name="apellido">
+                    <input type="text" id="apellido" name="apellido" value="<?php echo $userData['usu_apellido'] ?>">
+                    <p style="color: red;"><?php echo ($userData['usu_apellido_err']) ?></p>
                 </div>
                 <div class="field-group">
                     <label for="password">Contraseña</label>
-                    <input type="password" id="password" name="password">
+                    <input type="password" id="password" name="password" value="<?php echo $userData['usu_contrasena'] ?>">
+                    <p style="color: red;"><?php echo ($userData['usu_contrasena_err']) ?></p>
                 </div>
                 <div class="field-group">
                     <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" >
+                    <input type="email" id="email" name="email" value="<?php echo $userData['usu_correo'] ?>">
+                    <p style="color: red;"><?php echo ($userData['usu_correo_err']) ?></p>
                 </div>
                 <div class="field-group">
                     <label for="telephone">Teléfono</label>
-                    <input type="tel" id="telephone" name="telephone">
+                    <input type="tel" id="telephone" name="telephone" value="<?php echo $userData['usu_telefono'] ?>"> 
+                    <p style="color: red;"><?php echo ($userData['usu_telefono_err']) ?></p>
                 </div>
                 
                 <div class="botones">
