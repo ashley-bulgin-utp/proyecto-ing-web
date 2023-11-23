@@ -4,8 +4,8 @@ class AjusteUsuario extends Controller
 
     private $userModel;
 
-    public function __construct()
-    {
+    public function __construct() {
+        $this->userModel = $this->model('M_Usuarios');
     }
 
     public function ajuste($data)
@@ -15,7 +15,7 @@ class AjusteUsuario extends Controller
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             $data = [
-                'userData' => array (
+                'userData' => [
                     'usu_nombre' => trim($_POST['name']),
                     'usu_apellido' => trim($_POST['apellido']),
                     'usu_contrasena' => trim($_POST['password']),
@@ -27,22 +27,29 @@ class AjusteUsuario extends Controller
                     'usu_contrasena_err' => '',
                     'usu_correo_err' => '',
                     'usu_telefono_err' => ''
-                ),
-                'profileData' => array (
+                ],
+                'profileData' => [
                     'image' => trim($_POST['image']),
 
                     'image_err' => ''
-                )
+                ],
+                'data_err' => '',
+                'success_msg' => ''
             ];
 
             $profileData = $data['profileData'];
-            $userData = $data['userData'];
+            $userData = $data['userData'];    
+            
 
             // Validar que la contraseña tenga minimo 6 caracteres
-            if(strlen($userData['usu_contrasena']) < 6) {
+            if(strlen($userData['usu_contrasena']) > 0 && strlen($userData['usu_contrasena']) < 6) {
                 $userData['usu_contrasena_err'] = 'La contraseña debe tener al menos 6 caracteres';
             }
 
+            // Enviar error si todos los campos estan vacios
+            if (empty(array_filter($data['userData']))) {
+                $data['data_err'] = 'No se han modificado los campos';
+            }
             // $targetDir = "../../public/assets/ProfilePics";
             // $fileName = basename($_FILES["image"]["name"]);
             // $uniqeuFileName = $userID . "_" . $fileName;
@@ -56,11 +63,33 @@ class AjusteUsuario extends Controller
             // }
 
             
+        } else {
+            $data = [
+                'userData' => [
+                    'usu_nombre' => '',
+                    'usu_apellido' => '',
+                    'usu_contrasena' => '',
+                    'usu_correo' => '',
+                    'usu_telefono' => '',
+
+                    'usu_nombre_err' => '',
+                    'usu_apellido_err' => '',
+                    'usu_contrasena_err' => '',
+                    'usu_correo_err' => '',
+                    'usu_telefono_err' => ''
+                ],
+                'profileData' => [
+                    'image' => '',
+
+                    'image_err' => ''
+                ],
+                'data_err' => '',
+                'success_msg' => ''
+            ];
         }
 
-        $this->view('ajusteUsuario', $data);
+        // $this->view('ajusteUsuario', ['data' => $data]);
+        $this->view('ajusteUsuario', ['userData' => $userData, 'profileData' => $profileData, 'data_err' => $data['data_err'], 'success_msg' => $data['success_msg']]);
 
-
-        
     }
 }
