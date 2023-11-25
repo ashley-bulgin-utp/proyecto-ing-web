@@ -58,7 +58,9 @@
                     <label for="telephone">Teléfono</label>
                     <input type="tel" id="telephone" name="telephone" value="<?php echo $userData['usu_telefono'] ?>"> 
                     <p style="color: red;"><?php echo ($userData['usu_telefono_err']) ?></p>
-                    <p style="color: red;"><?php echo ($data['data_err']) ?></p>
+                    <p style="color: red;"><?php echo ($data['err_msg']) ?></p>
+                    <p style="color: green;"><?php echo ($data['success_msg']) ?></p>
+
                 </div>
                 <div class="botones">
                     <button type="submit" class="btn-cancelar" onclick="this.form.reset();">Cancelar</button>

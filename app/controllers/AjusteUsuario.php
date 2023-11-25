@@ -10,6 +10,7 @@ class AjusteUsuario extends Controller
 
     public function ajuste($data)
     {
+        
         $userID = $_SESSION['user_id'];
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,34 +34,58 @@ class AjusteUsuario extends Controller
 
                     'image_err' => ''
                 ],
-                'data_err' => '',
+                'err_msg' => '',
                 'success_msg' => ''
             ];
 
             $profileData = $data['profileData'];
             $userData = $data['userData'];    
             
+            // Sanitizar datos
 
-            // Validar que la contraseña tenga minimo 6 caracteres
-            if(strlen($userData['usu_contrasena']) > 0 && strlen($userData['usu_contrasena']) < 6) {
-                $userData['usu_contrasena_err'] = 'La contraseña debe tener al menos 6 caracteres';
+            // Validar nombre
+            if (empty($userData['usu_nombre'])) {
+                $currentData = $this->userModel->userCurrentData('usu_nombre', $userID);
+                $userData['usu_nombre'] = $currentData->usu_nombre;
             }
 
-            // Enviar error si todos los campos estan vacios
-            if (empty(array_filter($data['userData']))) {
-                $data['data_err'] = 'No se han modificado los campos';
+            // Validar apellido
+            if (empty($userData['usu_apellido'])) {
+                $currentData = $this->userModel->userCurrentData('usu_apellido', $userID);
+                $userData['usu_apellido'] = $currentData->usu_apellido;
             }
-            // $targetDir = "../../public/assets/ProfilePics";
-            // $fileName = basename($_FILES["image"]["name"]);
-            // $uniqeuFileName = $userID . "_" . $fileName;
-            // $targetFilePath = $targetDir . $uniqeuFileName;
+        
+            // Validar contraseña
+            if (empty($userData['usu_contrasena'])) {
+                $currentData = $this->userModel->userCurrentData('usu_contrasena', $userID);
+                $userData['usu_contrasena'] = $currentData->usu_contrasena;
+            } else {
+                // Validar que la contraseña tenga minimo 6 caracteres
+                if(strlen($userData['usu_contrasena']) > 0 && strlen($userData['usu_contrasena']) < 6) {
+                    $userData['usu_contrasena_err'] = 'La contraseña debe tener al menos 6 caracteres';
+                } else {
+                    // Encripcion del password
+                    $userData['usu_contrasena'] = password_hash($userData['usu_contrasena'], PASSWORD_DEFAULT);
+                }
+            }
 
-            // Verificar tamaño del archivo
-            // if ($_FILES['image']['size'] > 5000000) {
-            //     $data['image_err'] = 'El archivo supera el limite';
-            //     var_dump('El archivo supera el limite');
-            // } else {
-            // }
+            // Validar correo 
+            if (empty($userData['usu_correo'])) {
+                $currentData = $this->userModel->userCurrentData('usu_correo', $userID);
+                $userData['usu_correo'] = $currentData->usu_correo;
+            } else {
+                // Validar que el correo a modificar no exista
+                if($this->userModel->findUserByEmail($userData['usu_correo'])) {
+                    $userData['usu_correo_err'] = 'El correo ya se encuentra registrado';
+                }
+            }
+
+            // Modificar info del usuario en la bd
+            if($this->userModel->modifyUserData($userData, $userID)) {
+                $data['success_msg'] = "Datos actualizados.";
+            } else {
+                $data['err_msg'] = "Se ha producido un error. Por favor intente nuevamente.";
+            }
 
             
         } else {
@@ -83,13 +108,12 @@ class AjusteUsuario extends Controller
 
                     'image_err' => ''
                 ],
-                'data_err' => '',
+                'err_msg' => '',
                 'success_msg' => ''
             ];
         }
 
-        // $this->view('ajusteUsuario', ['data' => $data]);
-        $this->view('ajusteUsuario', ['userData' => $userData, 'profileData' => $profileData, 'data_err' => $data['data_err'], 'success_msg' => $data['success_msg']]);
+        $this->view('ajusteUsuario', ['userData' => $userData, 'profileData' => $profileData, 'err_msg' => $data['err_msg'], 'success_msg' => $data['success_msg']]);
 
     }
 }
