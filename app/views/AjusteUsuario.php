@@ -19,7 +19,14 @@
         <h1 class="mobileh1">Ajustes de Perfil</h1>
         <div id="ajustar-perfil">
                 <div class="perfil">
-                    <img class="profile_img" src="<?php echo URLROOT; ?>/assets/AjusteUsuario/placeholderProfile.png" alt="Foto de perfil">
+                    <!-- <img class="profile_img" src="<?php echo URLROOT; ?>/assets/AjusteUsuario/placeholderProfile.png" alt="Foto de perfil"> -->
+                    <?php
+                        if (isset($_SESSION['user_image'])) {
+                            echo "<img class='profile_img' src='{$_SESSION['user_image']}' alt='Foto de perfil'>";
+                        } else {
+                            echo "<img class='profile_img' src='../../assets/Menu/blank-profile.png' alt='Foto de perfil'>";
+                        }
+                    ?>
                 </div>
                 <div class="upload">
                     <form action="<?php echo URLROOT; ?>/AjusteUsuario/ajuste<?php echo $_SESSION['user_id'] ?>" class="ajustarPerfil" method="POST" enctype="multipart/form-data">
