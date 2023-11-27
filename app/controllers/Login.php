@@ -20,45 +20,12 @@
                     'logmail_err' => '',
                     'logpass_err' => ''
                 ];
-
-                // Validar correo
-                if(empty($data['logmail'])) {
-                    $data['logmail_err'] = 'Por favor ingrese su correo electrónico';
-                } else {
-                    // Validar si el correo existe
-                    if($this->userModel->findUserByEmail($data['logmail'])) {
-                        // Usuario encontrado
-                    } else {
-                        $data['logmail_err'] = 'El correo ingresado no esta registrado';
-                    }
-                }
-
-                // Validar contraseña
-                if(empty($data['logpass'])) {
-                    $data['logpass_err'] = 'Por favor ingrese su contraseña';
-                } 
-
-                // Ingresar si no se dieron errores
-                if (empty($data['logmail_err']) && empty($data['logpass_err'])) {
-                    $loggedInUser = $this->userModel->login($data['logmail'], $data['logpass']);
-                    
-                    if($loggedInUser) {
-                        // Usuario autenticado
-                        // Crear session
-                        $this->createUserSession($loggedInUser);
-                    } else {
-                        $data['logpass_err'] = 'Contraseña incorrecta';
-                        $this->view('login', $data);
-                    }
-
-                } else {
-                    // Cargar vista con errores
-                    $this->view('login', $data);
-                }
+                
+                $this->checkParam($data);
+                
 
             } else {
                 // Cargar Formulario (no se ha enviado)
-                
                 $data = [
                     'logmail' => '',
                     'logpass' => '',
@@ -68,6 +35,43 @@
                 ];
 
                 // Cargar vista
+                $this->view('login', $data);
+            }
+        }
+
+        // Validar parametros
+        public function checkParam($data) {
+            // Validar correo
+            if(empty($data['logmail'])) {
+                $data['logmail_err'] = 'Por favor ingrese su correo electrónico';
+            } else {
+                // Validar si el correo ya existe
+                if($this->userModel->findUserByEmail($data['logmail'])) {
+                    // Usuario encontrado
+                } else {
+                    $data['logmail_err'] = 'El correo ingresado no esta registrado';
+                }
+            }
+
+            // Validar contraseña
+            if(empty($data['logpass'])) {
+                $data['logpass_err'] = 'Por favor ingrese su contraseña';
+            } 
+
+            // Ingresar si no se dieron errores
+            if (empty($data['logmail_err']) && empty($data['logpass_err'])) {
+                $loggedInUser = $this->userModel->login($data['logmail'], $data['logpass']);
+                
+                if($loggedInUser) {
+                    // Usuario autenticado; crear sesion
+                    $this->createUserSession($loggedInUser);
+                } else {
+                    $data['logpass_err'] = 'Contraseña incorrecta';
+                    $this->view('login', $data);
+                }
+
+            } else {
+                // Cargar vista con errores
                 $this->view('login', $data);
             }
         }

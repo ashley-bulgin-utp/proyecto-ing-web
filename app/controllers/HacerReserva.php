@@ -3,7 +3,8 @@
         public function __construct() {
         }
 
-        public function hacer($name) {
+        public function hacer($id) {
+            $restId = $id;
             $this->view('HacerReserva');
         }
         
