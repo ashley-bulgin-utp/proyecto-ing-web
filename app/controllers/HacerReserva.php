@@ -13,10 +13,11 @@
 
         public function reservar($id) {
             global $response, $error;
-            $restId = $id;
+            $restID = $id;
+            $userID = $_SESSION['user_id'];
 
             // Fetch del info del restaurante
-            $restInfo = $this->restModel->getRestaurante($restId);
+            $restInfo = $this->restModel->getRestaurante($restID);
             if ($restInfo) {
                 $restData = [
                     'id' => $id,
@@ -50,13 +51,15 @@
                 // Validar parametros de reserva
                 if($this->checkParams($reservaData, $restData)) {
                     // Enviar a la bd
-
-                    $response = 'Reserva exitosa!';
+                    if($this->reservationModel->insertReservation($userID, $restID, $reservaData)) {
+                        $response = 'Reserva exitosa!';
+                    } else {
+                        $error = 'Se ha producido un error, por favor intente nuevamente.';
+                    }
+                    
                 } else {
-                    $error = 'El restaurante no esta disponsible para la hora seleccionada';
+                    $error = 'El restaurante no esta disponsible para la hora seleccionada.';
                 }
-                
-                
                 
             } else {
                 $reservaData = [
