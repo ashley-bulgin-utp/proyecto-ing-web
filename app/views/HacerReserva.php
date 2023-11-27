@@ -85,7 +85,17 @@
         </div>
         <div class="botones">
             <button class="btn btn-primary btn-cancelar" onclick="this.form.reset()" >Cancelar</button>
-            <p style="color: red;"><?php var_dump ($reservaData['dia_err']) ?></p>
+            <?php
+                if (empty($data['response'])) {
+                    echo "<p style='color: red;'>";
+                    echo($data['error']);
+                    echo "</p>";
+                 } elseif (empty($data['error'])) {
+                    echo "<p style='color: green;'>";
+                    echo($data['response']);
+                    echo "</p>";
+                 }
+            ?>
             <button type="submit" form="reservar" class="btn btn-primary btn-reservar" data-bs-toggle="modal" data-bs-target="#processingModal">Reservar</button>
         </div>
 

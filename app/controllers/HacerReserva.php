@@ -3,6 +3,8 @@
         
         private $restModel;
         private $reservationModel;
+        private $response = '';
+        private $error = '';
 
         public function __construct() {
             $this->restModel = $this->model('M_InfoRestaurante');
@@ -10,6 +12,7 @@
         }
 
         public function reservar($id) {
+            global $response, $error;
             $restId = $id;
 
             // Fetch del info del restaurante
@@ -42,21 +45,18 @@
                     'hora' => trim($_POST['time']),
                     'comentarios' => trim($_POST['comentario']),
                     'personas' => trim($_POST['personas']),
-
-                    'dia_err' => '',
-                    'hora_err' => '',
-                    'success_msg' => '',
-                    'err_msg' => ''
                 ];
-
-                // Validar parametros de reserva
-                $this->checkParams($reservaData, $restData);
                 
-                // Verify time
-                // If good, send true
-                // Else false, send err_msg
-                // var_dump($reservaData);
+                // Validar parametros de reserva
+                if($this->checkParams($reservaData, $restData)) {
+                    // Enviar a la bd
 
+                    $response = 'Reserva exitosa!';
+                } else {
+                    $error = 'El restaurante no esta disponsible para la hora seleccionada';
+                }
+                
+                
                 
             } else {
                 $reservaData = [
@@ -65,32 +65,38 @@
                     'hora' => '',
                     'comentarios' => '',
                     'personas' => '',
-
-                    'dia_err' => '',
-                    'hora_err' => '',
-                    'success_msg' => '',
-                    'err_msg' => ''
                 ];
             }
             
 
-            $this->view('HacerReserva', ['restData' => $restData, 'reservaData' => $reservaData]);
+            $this->view('HacerReserva', ['restData' => $restData, 'reservaData' => $reservaData, 'response' => $response, 'error' => $error]);
         }
 
+        // Verificar parametros de la reserva
         public function checkParams($reservaData, $restData) {
             // Verificar campo hora
             if($reservaData['hora']) {
+                global $response, $error;
                 // Verificar horario de restaurante segun dia seleccionado
                 $day = $this->getWeekDay($reservaData);
                 $horario = $this->restModel->getRestTime($restData['id'], $day);
-                
-                // Verificar otra reserva
-                
+
+                // Cambiar formato de las horas
+                $horaSeleccionada = new DateTime($reservaData['hora']);
+                $horaInicio = new DateTime($horario->dis_hor_inicio);
+                $horaCierre = new DateTime($horario->dis_hor_cierre);
+
+                if ($horaSeleccionada >= $horaInicio && $horaSeleccionada <= $horaCierre) {
+                    return true;
+                                        
+                } else {
+                    return false;
+                }
             }
         }
 
+        // Funcion que retorno dia de la semana
         public function getWeekDay($reservaData) {
-
             $dateTime = new DateTime($reservaData['dia']);
             $weekDay = $dateTime->format('N');
 

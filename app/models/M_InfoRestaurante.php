@@ -64,7 +64,6 @@
             $this->db->bind(':hora', $day);
 
             $horario = $this->db->single();
-            var_dump($horario);
             
             if($this->db->rowCount() > 0) {
                 return $horario;
