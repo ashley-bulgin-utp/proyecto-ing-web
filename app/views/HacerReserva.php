@@ -1,4 +1,6 @@
-<?php require APPROOT.'/views/includes/components/Menu.php' ?>
+<?php require APPROOT.'/views/includes/components/Menu.php';
+    $restData = $data['restData'];
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +15,8 @@
 <body>
     <div id="mainContent">
         <div class="upper">
-            <a href="/client/InfoRest/restaurante.html"><i class="fa-solid fa-arrow-left left-arrow"></i></a>
-            <h1>Nombre del Restaurante</h1>
+            <a href="<?php echo URLROOT; ?>/InfoRest/info/?restId=<?php echo $restData['id'] ?>"><i class="fa-solid fa-arrow-left left-arrow"></i></a>
+            <h1><?php echo $restData['nombre'] ?></h1>
         </div>
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -24,13 +26,13 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active c-item">
-                <img src="./assets/1.png" class="d-block  c-img" alt="imagen-restaurante">
+                <img src="<?php echo $restData['imagen1'] ?>" class="d-block  c-img" alt="imagen-restaurante">
               </div>
               <div class="carousel-item c-item">
-                <img src="./assets/2.png" class="d-block  c-img" alt="imagen-restaurante">
+                <img src="<?php echo $restData['imagen2'] ?>" class="d-block  c-img" alt="imagen-restaurante">
               </div>
               <div class="carousel-item c-item">
-                <img src="./assets/3.png" class="d-block  c-img" alt="imagen-restaurante">
+                <img src="<?php echo $restData['imagen3'] ?>" class="d-block  c-img" alt="imagen-restaurante">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -43,16 +45,16 @@
             </button>
         </div>
         <div id="reservaForm" method="post">
-            <form action="">
+            <form action="<?php echo URLROOT; ?>/HacerReserva/reservar/"<?php echo $restData['id'] ?> method="POST">
                 <!-- Fecha -->
                 <div class="field-group">
                     <label for="dateInput" class="sr-only">Fecha</label>
-                    <input type="date" name="date" id="dateInput" required>
+                    <input type="date" name="dia" id="dateInput" required>
                 </div>
                 <!-- Sillas de bebe -->
                 <div class="field-group">
                     <label for="sillas-dd" class="sr-only">Fecha</label>
-                    <select id='sillas-dd' name='number' required>
+                    <select id='sillas-dd' name='sillasBebe' required>
                         <option value='1' selected="selected">1 silla bebe</option>
                         <option value='2'>2 sillas bebe</option>
                         <option value='3'>3 sillas bebe</option>
@@ -70,7 +72,7 @@
                 </div>
                 <div class="field-group">
                     <label for="personas-dd" class="sr-only">Personas</label>
-                    <select id='personas-dd' name='number' required>
+                    <select id='personas-dd' name='personas' required>
                         <option value='1' selected="selected">1 persona</option>
                         <option value='2'>2 personas</option>
                         <option value='3'>3 personas</option>
@@ -80,7 +82,7 @@
             </form>
         </div>
         <div class="botones">
-            <button class="btn btn-primary btn-cancelar">Cancelar</button>
+            <button class="btn btn-primary btn-cancelar" onclick="this.form.reset()" >Cancelar</button>
             <button type="button" class="btn btn-primary btn-reservar" form="reservaForm" data-bs-toggle="modal" data-bs-target="#processingModal">Reservar</button>
         </div>
 
