@@ -53,5 +53,24 @@
             ";
             return $query;
         }
+
+        public function getRestTime($restId, $day) {
+            $this->db->query(
+                'SELECT * FROM disponibilidad 
+                WHERE dis_res_id = :id
+                AND dis_hor_id = :hora');
+
+            $this->db->bind(':id', $restId);
+            $this->db->bind(':hora', $day);
+
+            $horario = $this->db->single();
+            var_dump($horario);
+            
+            if($this->db->rowCount() > 0) {
+                return $horario;
+            } else {
+                return false;
+            }
+        }
     }
 ?>

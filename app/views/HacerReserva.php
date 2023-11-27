@@ -1,5 +1,6 @@
 <?php require APPROOT.'/views/includes/components/Menu.php';
     $restData = $data['restData'];
+    $reservaData = $data['reservaData'];
 ?>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
     <!-- Reservar Modal -->
-    <script src="<?php echo URLROOT; ?>/js/VHMReserva/reservarModal.js"></script>
+    <!-- <script src="<?php echo URLROOT; ?>/js/VHMReserva/reservarModal.js"></script> -->
 </head>
 <body>
     <div id="mainContent">
@@ -44,18 +45,19 @@
               <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <div id="reservaForm" method="post">
-            <form action="<?php echo URLROOT; ?>/HacerReserva/reservar/"<?php echo $restData['id'] ?> method="POST">
+        <div id="reservaForm">
+            <form id="reservar" action="<?php echo URLROOT; ?>/HacerReserva/reservar/<?php echo $restData['id'] ?>" method="POST">
                 <!-- Fecha -->
                 <div class="field-group">
                     <label for="dateInput" class="sr-only">Fecha</label>
-                    <input type="date" name="dia" id="dateInput" required>
+                    <input type="date" name="dia" id="dateInput" min="<?php echo date('Y-m-d'); ?>" value="<?php echo $reservaData['dia'] ?>"  required>
                 </div>
                 <!-- Sillas de bebe -->
                 <div class="field-group">
                     <label for="sillas-dd" class="sr-only">Fecha</label>
                     <select id='sillas-dd' name='sillasBebe' required>
-                        <option value='1' selected="selected">1 silla bebe</option>
+                        <option value='0' selected="selected">No requerido</option>
+                        <option value='1'>1 silla bebe</option>
                         <option value='2'>2 sillas bebe</option>
                         <option value='3'>3 sillas bebe</option>
                     </select>
@@ -63,7 +65,7 @@
                 <!-- Hora -->
                 <div class="field-group">
                     <label for="time" class="sr-only">Hora</label>
-                    <input type="time" name="time" id="time" required>
+                    <input type="time" name="time" id="time" value="<?php echo $reservaData['hora'] ?>" required>
                 </div>
                 <!-- Comentario -->
                 <div class="field-group-textarea">
@@ -83,11 +85,13 @@
         </div>
         <div class="botones">
             <button class="btn btn-primary btn-cancelar" onclick="this.form.reset()" >Cancelar</button>
-            <button type="button" class="btn btn-primary btn-reservar" form="reservaForm" data-bs-toggle="modal" data-bs-target="#processingModal">Reservar</button>
+            <p style="color: red;"><?php var_dump ($reservaData['dia_err']) ?></p>
+            <button type="submit" form="reservar" class="btn btn-primary btn-reservar" data-bs-toggle="modal" data-bs-target="#processingModal">Reservar</button>
         </div>
 
+
         <!-- Modal -->
-        <div class="modal fade" id="processingModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="processingModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" aria-labelledby="modalTitle">
                 <div class="modal-content">
                     <div class="modal-body modalContent">
@@ -101,7 +105,7 @@
                     <div class="modal-footer"></div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
     </div>
 </body>
