@@ -13,6 +13,7 @@
             if ($fetchObj) {
                 $fetchObj->dias_con_horas = $this->cleanHorario($fetchObj->dias_con_horas);
                 $restauranteInfo = [
+                    'id' => $id,
                     'nombre' => $fetchObj->res_nombre,
                     'imagen1' => $fetchObj->res_imagen1,
                     'imagen2' => $fetchObj->res_imagen2,
