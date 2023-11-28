@@ -38,6 +38,7 @@
                 r.reserv_cant_personas,
                 r.reserv_cant_silla_bebe,
                 r.reserv_comentarios,
+                res.res_id,
                 res.res_nombre,
                 res.res_ubicacion,
                 res.res_imagen1
