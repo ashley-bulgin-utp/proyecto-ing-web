@@ -76,5 +76,33 @@
             }
 
         }
+
+        // Actualizar reserva
+        public function updateReservation($reservID, $reservaInfo) {
+            $this->db->query(
+                'UPDATE reservas SET 
+                reserv_fecha = :reserv_fecha,
+                reserv_hora = :reserv_hora,
+                reserv_cant_personas = :reserv_personas,
+                reserv_cant_silla_bebe = :reserv_sillaBebes,
+                reserv_comentarios = :reserv_comentarios
+                WHERE reserv_id = :reserv_id');
+            $this->db->bind(':reserv_fecha', $reservaInfo['dia']);    
+            $this->db->bind(':reserv_hora', $reservaInfo['hora']);
+            $this->db->bind(':reserv_personas', $reservaInfo['personas']);
+            $this->db->bind(':reserv_sillaBebes', $reservaInfo['sillasBebe']);
+            $this->db->bind(':reserv_comentarios', $reservaInfo['comentario']);
+            $this->db->bind(':reserv_id', $reservID);
+            
+            var_dump($reservaInfo);
+            var_dump('TEST');
+            var_dump($reservaInfo['sillasBebe']);
+
+            if($this->db->execute()) { 
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 ?>
