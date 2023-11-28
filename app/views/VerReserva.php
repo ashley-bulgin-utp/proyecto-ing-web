@@ -1,4 +1,7 @@
-<?php require APPROOT.'/views/includes/components/Menu.php' ?>
+<?php require APPROOT.'/views/includes/components/Menu.php';
+    $restData = $data['restData'];
+    $reservaData = $data['reservaData'];
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +16,8 @@
 <body>
     <div id="mainContent">
         <div class="upper">
-            <a href="/client/MisReservas/misReservas.html"><i class="fa-solid fa-arrow-left left-arrow"></i></a>
-            <h1>Nombre del Restaurante</h1>
+            <a href="<?php echo URLROOT; ?>/MisReservas/misReservas/<?php echo $_SESSION['user_id'] ?>"><i class="fa-solid fa-arrow-left left-arrow"></i></a>
+            <h1><?php echo $restData['nombre'] ?></h1>
         </div>
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -24,13 +27,13 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active c-item">
-                <img src="./assets/1.png" class="d-block  c-img" alt="...">
+                <img src="<?php echo $restData['imagen1'] ?>" class="d-block  c-img" alt="...">
               </div>
               <div class="carousel-item c-item">
-                <img src="./assets/2.png" class="d-block  c-img" alt="...">
+                <img src="<?php echo $restData['imagen2'] ?>" class="d-block  c-img" alt="...">
               </div>
               <div class="carousel-item c-item">
-                <img src="./assets/3.png" class="d-block  c-img" alt="...">
+                <img src="<?php echo $restData['imagen3'] ?>" class="d-block  c-img" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -47,63 +50,41 @@
                 <!-- Fecha -->
                 <div class="field-group">
                     <label for="dateInput" class="sr-only">Fecha</label>
-                    <input type="date" name="date" id="dateInput" required disabled>
+                    <input type="date" name="date" id="dateInput" value="<?php echo $reservaData['dia'] ?>" required disabled>
                 </div>
                 <!-- Sillas de bebe -->
                 <div class="field-group">
-                    <label for="sillas-dd" class="sr-only">Fecha</label>
+                    <label for="sillas-dd" class="sr-only">Sillas</label>
                     <select id='sillas-dd' name='number' required disabled>
-                      <option value='0'>No requerido</option>
-                      <option value='1' selected="selected">1 silla bebe</option>
-                      <option value='2'>2 sillas bebe</option>
-                      <option value='3'>3 sillas bebe</option>
+                      <option value='0' <?php echo ($reservaData['sillasBebe'] == 0) ? "selected = 'selected'" : ''; ?>>No requerido</option>
+                      <option value='1' <?php echo ($reservaData['sillasBebe'] == 1) ? "selected = 'selected'" : ''; ?>>1 silla bebe</option>
+                      <option value='2' <?php echo ($reservaData['sillasBebe'] == 2) ? "selected = 'selected'" : ''; ?>>2 sillas bebe</option>
+                      <option value='3' <?php echo ($reservaData['sillasBebe'] == 3) ? "selected = 'selected'" : ''; ?>>3 sillas bebe</option>
                     </select>
                 </div>
                 <!-- Hora -->
                 <div class="field-group">
                     <label for="time" class="sr-only">Hora</label>
-                    <input type="time" name="time" id="time" required disabled>
+                    <input type="time" name="time" id="time" value="<?php echo $reservaData['hora'] ?>" required disabled>
                 </div>
                 <!-- Comentario -->
                 <div class="field-group-textarea">
                     <label for="comentario">Comentarios adicionales</label>
-                    <textarea name="comentario" id="comentario" disabled></textarea>
+                    <textarea name="comentario" id="comentario" placeholder="<?php echo($reservaData['comentarios']) ?>" disabled></textarea>
                 </div>
                 <div class="field-group">
                     <label for="personas-dd" class="sr-only">Personas</label>
                     <select id='personas-dd' name='number' required disabled>
-                      <option value='0'>No requerido</option>  
-                      <option value='1' selected="selected">1 persona</option>
-                      <option value='2'>2 personas</option>
-                      <option value='3'>3 personas</option>
-                      <option value='3'>4+ personas</option>
+                      <option value='1' <?php echo ($reservaData['personas'] == 1) ? "selected = 'selected'" : ''; ?>>1 persona</option>
+                      <option value='2'  <?php echo ($reservaData['personas'] == 2) ? "selected = 'selected'" : ''; ?>'>2 personas</option>
+                      <option value='3' <?php echo ($reservaData['personas'] == 3) ? "selected = 'selected'" : ''; ?>>3 personas</option>
+                      <option value='4' <?php echo ($reservaData['personas'] == 4) ? "selected = 'selected'" : ''; ?>>4+ personas</option>
                     </select>
                 </div>
             </form>
         </div>
         <div class="botones">
-            <button class="btn btn-primary btn-cancelar">Cancelar</button>
-            <!-- <button type="button" class="btn btn-primary btn-reservar" form="reservaForm" data-bs-toggle="modal" data-bs-target="#processingModal">Modificar</button> -->
             <button type="button" class="btn btn-primary btn-reservar" form="reservaForm">Modificar</button>
-
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="processingModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" aria-labelledby="modalContent">
-                    <div class="modal-body modalContent">
-                        <div class="msg">
-                            <span class="modal-msg" aria-labelledby="modalProcessing">Procesando...</span>
-                        </div>
-                        <div class="horizontal-bar-wrap">
-                            <div class="bar1 bar"></div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>
