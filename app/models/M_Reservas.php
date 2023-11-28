@@ -27,5 +27,34 @@
                 return false;
             }
         }
+
+        // Fetch de las reservas
+        public function getReservations($userID) {
+            $this->db->query(
+                'SELECT 
+                r.reserv_id,
+                r.reserv_fecha,
+                r.reserv_hora,
+                r.reserv_cant_personas,
+                r.reserv_cant_silla_bebe,
+                r.reserv_comentarios,
+                res.res_nombre
+              FROM 
+                reservas r
+              JOIN 
+                restaurantes res ON r.reserv_res_id = res.res_id
+               WHERE r.reserv_usu_id = :usu_id');
+            $this->db->bind(':usu_id', $userID);
+
+            $reservaInfo = $this->db->single();
+
+            var_dump($reservaInfo);
+
+            if($this->db->rowCount() > 0) {
+                return $reservaInfo;
+            } else {
+                return false;
+            }        
+        }
     }
 ?>
