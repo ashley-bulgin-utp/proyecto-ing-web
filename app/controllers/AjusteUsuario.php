@@ -15,6 +15,7 @@ class AjusteUsuario extends Controller
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
+            // Sanitizar datos
             $data = [
                 'userData' => [
                     'usu_nombre' => trim($_POST['name']),
@@ -41,7 +42,6 @@ class AjusteUsuario extends Controller
             $profileData = $data['profileData'];
             $userData = $data['userData'];    
             
-            // Sanitizar datos
 
             // Validar nombre
             if (empty($userData['usu_nombre'])) {
@@ -61,11 +61,15 @@ class AjusteUsuario extends Controller
                 $userData['usu_contrasena'] = $currentData->usu_contrasena;
             } else {
                 // Validar que la contraseña tenga minimo 6 caracteres
-                if(strlen($userData['usu_contrasena']) > 0 && strlen($userData['usu_contrasena']) < 6) {
+                if(strlen($userData['usu_contrasena']) < 6) {
                     $userData['usu_contrasena_err'] = 'La contraseña debe tener al menos 6 caracteres';
+                    var_dump($userData['usu_contrasena_err']);
+                    var_dump('check1');
                 } else {
                     // Encripcion del password
                     $userData['usu_contrasena'] = password_hash($userData['usu_contrasena'], PASSWORD_DEFAULT);
+                    var_dump($userData['usu_contrasena']);
+                    var_dump('check2');
                 }
             }
 
