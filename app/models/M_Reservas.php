@@ -28,8 +28,8 @@
             }
         }
 
-        // Fetch de las reservas
-        public function getReservations($userID) {
+        // Fetch de las reservas con Id de usuario
+        public function getReservationsByUser($userID) {
             $this->db->query(
                 'SELECT 
                 r.reserv_id,
@@ -41,7 +41,9 @@
                 res.res_id,
                 res.res_nombre,
                 res.res_ubicacion,
-                res.res_imagen1
+                res.res_imagen1,
+                res.res_imagen2,
+                res.res_imagen3
               FROM 
                 reservas r
               JOIN 
@@ -56,6 +58,17 @@
             } else {
                 return false;
             }        
+        }
+
+        // Fetch de las reservas con ID de reserva
+        public function getReservationByReservationId($reservaID) {
+            $this->db->query('SELECT reserv_usu_id FROM reservas WHERE reserv_id = :reserv_id');
+            $this->db->bind(':reserv_id', $reservaID);
+            
+            $userID = $this->db->single();
+            var_dump($userID);
+            $this->getReservationsByUser($userID->reserv_usu_id);
+
         }
     }
 ?>
