@@ -66,8 +66,9 @@
                     <li>Correo: <?php echo $rest['correo'];?> </li>
                     <li>Telefono: <?php echo $rest['tel'];?></li>
                 </ul>
-                <div class="container-fluid d-flex justify-content-end">
-                    <a href="../../HacerReserva/reservar/<?php echo $rest['id'] ?>">
+                <div class="container-fluid d-flex justify-content-between">
+                  <button class="btn btn-secondary shadow rounded" id="reservarBtn">Ver Menú</button>
+                  <a href="../../HacerReserva/reservar/<?php echo $rest['id'] ?>">
                         <button class="btn btn-secondary shadow rounded" id="reservarBtn">Reservar</button>
                     </a>
                     
