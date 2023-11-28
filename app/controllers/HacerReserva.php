@@ -25,15 +25,6 @@
                     'imagen1' => $restInfo->res_imagen1,
                     'imagen2' => $restInfo->res_imagen2,
                     'imagen3' => $restInfo->res_imagen3,
-                    'correo' => $restInfo->res_correo,
-                    'tel' => $restInfo -> res_tel,
-                    'tipoRes' => $restInfo->res_tipoRes,
-                    'tipoComida' => $restInfo->res_tipoComida,
-                    'precio' => $restInfo -> res_precio,
-                    'resena' => $restInfo ->res_resena,
-                    'ubicacion' => $restInfo -> res_ubicacion,
-                    'tipoFacilidad' => $restInfo -> facilidades,
-                    'descripcion' => $restInfo -> desc_desc,
                     'horario' => $restInfo -> dias_con_horas
                 ];
             };
