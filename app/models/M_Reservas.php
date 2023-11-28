@@ -39,7 +39,8 @@
                 r.reserv_cant_silla_bebe,
                 r.reserv_comentarios,
                 res.res_nombre,
-                res.res_ubicacion
+                res.res_ubicacion,
+                res.res_imagen1
               FROM 
                 reservas r
               JOIN 
@@ -48,8 +49,6 @@
             $this->db->bind(':usu_id', $userID);
 
             $reservaInfo = $this->db->single();
-
-            var_dump($reservaInfo);
 
             if($this->db->rowCount() > 0) {
                 return $reservaInfo;
