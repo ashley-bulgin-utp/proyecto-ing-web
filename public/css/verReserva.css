@@ -125,10 +125,9 @@ select {
 .botones {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin: 2rem 0;
     width: 58.5rem;
-    align-content: space-around;
 }
 
 .botones .btn-cancelar {
