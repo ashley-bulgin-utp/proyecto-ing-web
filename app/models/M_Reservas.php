@@ -93,10 +93,6 @@
             $this->db->bind(':reserv_sillaBebes', $reservaInfo['sillasBebe']);
             $this->db->bind(':reserv_comentarios', $reservaInfo['comentario']);
             $this->db->bind(':reserv_id', $reservID);
-            
-            var_dump($reservaInfo);
-            var_dump('TEST');
-            var_dump($reservaInfo['sillasBebe']);
 
             if($this->db->execute()) { 
                 return true;
