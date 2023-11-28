@@ -130,11 +130,9 @@ select {
     width: 58.5rem;
 }
 
-.botones .btn-cancelar {
-    font-size: 1.3rem;
-    color: red;
-    background-color: white;
-    border-color: red;
+.botones .btn-reservar a {
+    text-decoration: none;
+    color: white;
 }
 
 .botones .btn-reservar {
@@ -153,16 +151,6 @@ select {
     opacity: 0.8;
 }
 
-.botones .btn-cancelar:hover {
-    font-size: 1.325rem;
-    transition: 0.2s ease;
-    background-color: red;
-    color: white;
-    border-color: red;
-    opacity: 0.8;
-}
-
-.botones .btn-cancelar:focus,
 .botones .btn-reservar:focus {
     background-color: red;
 }

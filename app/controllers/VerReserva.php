@@ -24,6 +24,7 @@
                 ];
                 // Almacenar info actual de reservas
                 $reserva = [
+                    'id' => $reservInfo->reserv_id,
                     'dia' => $reservInfo->reserv_fecha,
                     'hora' => $reservInfo->reserv_hora,
                     'personas' => $reservInfo->reserv_cant_personas,
@@ -31,7 +32,7 @@
                     'comentarios' => $reservInfo->reserv_comentarios
                 ];
             };
-            var_dump($reserva['personas']);
+
             // Limpiar parametro de hora
             $reserva['hora'] = $this->cleanTime($reserva['hora']);
 

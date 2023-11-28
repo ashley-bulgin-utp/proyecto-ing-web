@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/verReserva.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
-    <!-- Modificar Modal -->
-    <script type="text/javascript" src="<?php echo URLROOT; ?>/js/VHMReserva/modificarReserva.js"></script>
 </head>
 <body>
     <div id="mainContent">
@@ -84,7 +82,9 @@
             </form>
         </div>
         <div class="botones">
-            <button type="button" class="btn btn-primary btn-reservar" form="reservaForm">Modificar</button>
+            <button type="button" class="btn btn-primary btn-reservar" form="reservaForm">
+                <a href="<?php echo URLROOT ?>/ModificarReserva/modificar/<?php echo $reservaData['id'] ?>">Modificar</a>
+            </button>
         </div>
 
     </div>

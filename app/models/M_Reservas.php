@@ -66,8 +66,14 @@
             $this->db->bind(':reserv_id', $reservaID);
             
             $userID = $this->db->single();
-            var_dump($userID);
-            $this->getReservationsByUser($userID->reserv_usu_id);
+            
+            $getReservation = $this->getReservationsByUser($userID->reserv_usu_id);
+
+            if($getReservation) {
+                return $getReservation;
+            } else {
+                return false;
+            }
 
         }
     }
