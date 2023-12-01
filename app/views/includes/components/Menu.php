@@ -28,7 +28,7 @@
             <!-- Dropdown Menu -->
             <ul class="dropdown-menu nav-item dropdown" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="../../AjusteUsuario/ajuste/<?php echo $_SESSION['user_id'] ?>">Ajustar Perfil</a></li>
-                <li><a class="dropdown-item" href="../../Login/login/1">Cerrar Sesión</a></li>
+                <li><a class="dropdown-item" href="<?php echo URLROOT; ?>/Login/logout/1">Cerrar Sesión</a></li>
             </ul>
         </div>
     </section>
