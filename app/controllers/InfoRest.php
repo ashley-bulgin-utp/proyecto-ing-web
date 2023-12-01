@@ -18,6 +18,8 @@
                     'imagen1' => $fetchObj->res_imagen1,
                     'imagen2' => $fetchObj->res_imagen2,
                     'imagen3' => $fetchObj->res_imagen3,
+                    'imagen4' => $fetchObj->res_imagen4,
+                    'imagen5' => $fetchObj->res_imagen5,
                     'correo' => $fetchObj->res_correo,
                     'tel' => $fetchObj -> res_tel,
                     'tipoRes' => $fetchObj->res_tipoRes,
@@ -25,6 +27,7 @@
                     'precio' => $fetchObj -> res_precio,
                     'resena' => $fetchObj ->res_resena,
                     'ubicacion' => $fetchObj -> res_ubicacion,
+                    'sitio' => $fetchObj -> res_sitio,
                     'tipoFacilidad' => $fetchObj -> facilidades,
                     'descripcion' => $fetchObj -> desc_desc,
                     'horario' => $fetchObj -> dias_con_horas

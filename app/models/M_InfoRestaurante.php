@@ -28,6 +28,7 @@
                 r.res_tipoRes,
                 r.res_resena,
                 r.res_ubicacion,
+                r.res_sitio,
                 descrip.desc_desc,
                 GROUP_CONCAT( DISTINCT tf.tip_nombre SEPARATOR ', ') AS facilidades,
                 CONCAT(

@@ -62,6 +62,9 @@
           <li>Calificacion de <?php echo $rest['resena']; ?> estrellas</li>
           <li>Horario: <?php echo $rest['horario']; ?></li>
           <li>Facilidades: <?php echo $rest['tipoFacilidad']; ?></li>
+          <?php if(!empty($rest['sitio'])) :?>
+            <li>Sitio Web: <a href="<?php echo $rest['sitio'] ?>">clic aqui</a></li>
+          <?php endif; ?>
         </ul>
         <h2>Contacto</h2>
         <ul>
