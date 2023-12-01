@@ -15,7 +15,7 @@
     <section id="loginsec">
         <aside>
             <h1>Bienvenido</h1>
-            <form action="<?php echo URLROOT; ?>/Login/login/1" method="POST">
+            <form action="<?php echo URLROOT; ?>/Login/login/<?php echo $_SESSION['user_id']?>" method="POST">
                 <label for="logmail">Correo electrónico</label><br>
                 <input type="email" id="logmail" name="logmail" class="input" value="<?php echo $data['logmail'];?>" ><br>
                 <p class="invalid" style="color: red"><?php echo $data['logmail_err'];?></p>
