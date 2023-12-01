@@ -6,6 +6,14 @@
             $this->db = new Database();
         }
 
+        public function searchRestaurante($searchString){
+            $query = $this->setSelect();
+            $query .= " r.res_nombre LIKE '%" . $searchString . "%'";
+            $query = $query.' GROUP BY r.res_id'; 
+            $this->db->query($query);
+            return $this->db->resultSet();
+        }
+
         public function getRestaurantes($filtros) {
             if(count($filtros)>0){
                 $query = $this->setSelect();

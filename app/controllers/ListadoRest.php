@@ -7,7 +7,12 @@
 
         public function resultados($array = []) {
             $parameters = $this->getParameters();
-            $restaurants = $this->restModel->getRestaurantes($parameters); // Fetch de Restaurante
+            if(array_key_exists('search', $parameters)){
+                $restaurants = $this->restModel->searchRestaurante($parameters['search']); // Fetch de Restaurante por busqueda
+            }
+            else{
+                $restaurants = $this->restModel->getRestaurantes($parameters); // Fetch de Restaurante por filtros
+            }
             $restArray = [];
             foreach ($restaurants as $rest) {
                 $restArray[] = [
