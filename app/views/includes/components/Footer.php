@@ -11,50 +11,50 @@
             <div>
                 <li><a href="" class="categoria">Panameña</a></li>
             </div>
-            <li class="restaurante"><a href="">Casa Blanca</a></li>
-            <li class="restaurante"><a href="">El Trapiche</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=1">Casa Blanca</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=2">El Trapiche</a></li>
         </ul>
         <ul>
             <div>
               <li><a href="" class="categoria">Asiática</a></li>
             </div>
-            <li class="restaurante"><a href="">Sunly</a></li>
-            <li class="restaurante"><a href="">Jade Garden</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=3">Sunly</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=4">Jade Garden</a></li>
         </ul>
         <ul>
             <div>
               <li><a href="" class="categoria">Italiana</a></li>
             </div>
-            <li class="restaurante"><a href="">Stizzoli</a></li>
-            <li class="restaurante"><a href="">Madre Cucina</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=5">Stizzoli</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=6">Madre Cucina</a></li>
         </ul>
         <ul>
             <div>
               <li><a href="" class="categoria">Vegana</a></li>
             </div>
-            <li class="restaurante"><a href="">Azahar</a></li>
-            <li class="restaurante"><a href="">Jardín Vegetariano</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=7">Azahar</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=8">Jardín Vegetariano</a></li>
         </ul>
         <ul>
             <div>
               <li><a href="" class="categoria">Mexicana</a></li>
             </div>
-            <li class="restaurante"><a href="">Wahaka</a></li>
-            <li class="restaurante"><a href="">Tapachula</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=9">Wahaka</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=10">Tapachula</a></li>
         </ul>
         <ul>
             <div>
               <li><a href="" class="categoria">Española</a></li>
             </div>
-            <li class="restaurante"><a href="">Santa Rita</a></li>
-            <li class="restaurante"><a href="">Alandalus</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=11">Santa Rita</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=12">Alandalus</a></li>
         </ul>
         <ul>
             <div>
               <li><a href="" class="categoria">Pizzería</a></li>
             </div>
-            <li class="restaurante"><a href="">Barrio Pizza</a></li>
-            <li class="restaurante"><a href="">Giorgio's</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=13">Barrio Pizza</a></li>
+            <li class="restaurante"><a href="http://localhost/proyecto-ing-web/public/InfoRest/info/?restId=14">Giorgio's</a></li>
         </ul>
       </section>
       <section id="right">
