@@ -181,9 +181,9 @@
                             <img src="<?php echo $rest['imagen1']; ?>" alt="Restaurante <?php echo $rest['nombre']; ?>" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $rest['nombre']; ?></h5>
-                                <p class="card-text precio"><?php echo $rest['precio']; ?></p>
+                                <p class="card-text precio" style="color: green;"><?php echo $rest['precio']; ?></p>
                                 <p class="card-text horario"><?php echo $rest['horario']; ?></p>
-                                <p class="card-text ubicacion"><?php echo $rest['ubicacion']; ?></p>
+                                <p class="card-text ubicacion" style="color: navy"><?php echo $rest['ubicacion']; ?></p>
                                 <div class="expandContainer">
                                     <a href="<?php echo URLROOT; ?>/InfoRest/info/?restId=<?php echo $rest['id']; ?>" class="btn expandBtn justify-content-end">Ver más</a>
                                 </div>
