@@ -32,7 +32,9 @@
                         </div>
                     <?php endforeach; ?>
                 <?php else : ?>
-                    <p>No tiene reservas registradas.</p>
+                    <div style="height:50vh">
+                        <p>No tiene reservas registradas.</p>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
