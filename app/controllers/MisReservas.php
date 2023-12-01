@@ -26,8 +26,9 @@
                     ];
                 }                
 
-                $this->view('misReservas', $reservas);
             }
+            
+            $this->view('misReservas', $reservas);
             
         }
 
