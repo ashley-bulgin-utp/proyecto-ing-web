@@ -11,7 +11,7 @@
 <body>
     <div id="seachContainer">
         <form class="d-flex justify-content-center" <?php echo $_SERVER['PHP_SELF'] ?>>
-            <input class="form-control me-2" type="search" placeholder="Buscar restaurantes" aria-label="buscar restaurantes">
+            <input class="form-control me-2" type="search" name="search" placeholder="Buscar restaurantes" aria-label="buscar restaurantes">
             <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
       </div>
