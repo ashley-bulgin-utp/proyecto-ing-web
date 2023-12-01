@@ -23,12 +23,15 @@
                 }
             ?>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <?php echo ($_SESSION['user_name']) ?>
+                <?php echo ($_SESSION['user_name']) ?> 
             </a>
             <!-- Dropdown Menu -->
             <ul class="dropdown-menu nav-item dropdown" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="../../AjusteUsuario/ajuste/<?php echo $_SESSION['user_id'] ?>">Ajustar Perfil</a></li>
-                <li><a class="dropdown-item" href="../../Login/login/1">Cerrar Sesión</a></li>
+                <li><a class="dropdown-item" href="../../Login/login/1 <?php
+                require ('login.php');
+                logout($user);
+                ?>">Cerrar Sesión</a></li>
             </ul>
         </div>
     </section>
