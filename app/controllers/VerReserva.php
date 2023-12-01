@@ -35,8 +35,12 @@
 
             // Limpiar parametro de hora
             $reserva['hora'] = $this->cleanTime($reserva['hora']);
-
-            $this->view('VerReserva', ['restData' => $restData, 'reservaData' => $reserva]);
+            
+            if(!empty($_SESSION['user_id'])) {
+                $this->view('VerReserva', ['restData' => $restData, 'reservaData' => $reserva]);
+            } else {
+                redirect('Login/login/1');
+            }
         }
 
         public function cleanTime($hora) {

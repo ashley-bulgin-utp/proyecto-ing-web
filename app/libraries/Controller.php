@@ -15,8 +15,6 @@
             } else {
                 die('La vista no existe.');
             }
-            
-            // return new $view();
         }
     }
 ?>

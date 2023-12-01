@@ -62,8 +62,12 @@
                 ];
             }
             
+            if(!empty($_SESSION['user_id'])) {
+                $this->view('HacerReserva', ['restData' => $restData, 'reservaData' => $reservaData, 'response' => $response, 'error' => $error]);
+            } else {
+                redirect('Login/login/1');
+            }
 
-            $this->view('HacerReserva', ['restData' => $restData, 'reservaData' => $reservaData, 'response' => $response, 'error' => $error]);
         }
 
         // Verificar parametros de la reserva

@@ -24,7 +24,13 @@
                     'horario' => $this->cleanHorario($rest->dias_con_horas)
                 ];
             }
-            $this->view('resultados', ["restaurantes"=>$restArray]);
+            
+            if(!empty($_SESSION['user_id'])) {
+                $this->view('resultados', ["restaurantes"=>$restArray]);
+            } else {
+                redirect('Login/login/1');
+            }
+            
         }
 
         private function getParameters(){

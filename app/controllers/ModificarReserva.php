@@ -60,9 +60,12 @@
                     'personas' => '',
                 ];
             }
-
-
-            $this->view('ModificarReserva', ['restData' => $restData, 'reservaData' => $reservaData, 'response' => $response, 'error' => $error]);
+            
+            if(!empty($_SESSION['user_id'])) {
+                $this->view('ModificarReserva', ['restData' => $restData, 'reservaData' => $reservaData, 'response' => $response, 'error' => $error]);
+            } else {
+                redirect('Login/login/1');
+            }
               
         }
 

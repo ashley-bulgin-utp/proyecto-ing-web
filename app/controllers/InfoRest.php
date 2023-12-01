@@ -29,7 +29,11 @@
                     'descripcion' => $fetchObj -> desc_desc,
                     'horario' => $fetchObj -> dias_con_horas
                 ];
-                $this->view('infoRest', ['restauranteInfo'=>$restauranteInfo]);
+                if(!empty($_SESSION['user_id'])) {
+                    $this->view('infoRest', ['restauranteInfo'=>$restauranteInfo]);
+                } else {
+                    redirect('Login/login/1');
+                }
             }
             
         }

@@ -27,8 +27,11 @@
                 }                
 
             }
-            
-            $this->view('misReservas', $reservas);
+            if(!empty($_SESSION['user_id'])) {
+                $this->view('misReservas', $reservas);
+            } else {
+                redirect('Login/login/1');
+            }
             
         }
 

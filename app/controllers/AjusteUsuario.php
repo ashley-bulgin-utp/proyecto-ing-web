@@ -117,7 +117,11 @@ class AjusteUsuario extends Controller
             ];
         }
 
-        $this->view('ajusteUsuario', ['userData' => $userData, 'profileData' => $profileData, 'err_msg' => $data['err_msg'], 'success_msg' => $data['success_msg']]);
+        if(!empty($_SESSION['user_id'])) {
+            $this->view('ajusteUsuario', ['userData' => $userData, 'profileData' => $profileData, 'err_msg' => $data['err_msg'], 'success_msg' => $data['success_msg']]);
+        } else {
+            redirect('Login/login/1');
+        }
 
     }
 }
