@@ -1,4 +1,7 @@
-<?php require APPROOT . '/views/includes/components/Menu.php' ?>
+<?php require APPROOT . '/views/includes/components/Menu.php'; 
+  $rest = $data['restauranteInfo'];
+  $platosInfo = $data['platosInfo'];
+?>
 <html lang="en">
 
 <head>
@@ -25,16 +28,41 @@
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+
             </div>
+            <h5 class="text-center">Menu Destacado</h5>
             <div class="carousel-inner">
               <div class="carousel-item active c-item">
-                <img src="<?php echo $rest['imagen1'] ?>" class="d-block  c-img" alt="restaurante-image">
+                <img src="<?php echo($platosInfo['imagen1']) ?>" class="d-block  c-img" alt="restaurante-image">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5><?php echo $platosInfo['plato1'] ?></h5>
+                </div>
               </div>
               <div class="carousel-item c-item">
-                <img src="<?php echo $rest['imagen2'] ?>" class="d-block  c-img" alt="restaurante-image">
+                <img src="<?php echo($platosInfo['imagen2']) ?>" class="d-block  c-img" alt="restaurante-image">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 ><?php echo $platosInfo['plato2'] ?></h5>
+                </div>
               </div>
               <div class="carousel-item c-item">
-                <img src="<?php echo $rest['imagen3'] ?>" class="d-block  c-img" alt="restaurante-image">
+                <img src="<?php echo($platosInfo['imagen3']) ?>" class="d-block  c-img" alt="restaurante-image">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5><?php echo $platosInfo['plato3'] ?></h5>
+                </div>
+              </div>
+              <div class="carousel-item c-item">
+                <img src="<?php echo($platosInfo['imagen4']) ?>" class="d-block  c-img" alt="restaurante-image">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5><?php echo $platosInfo['plato4'] ?></h5>
+                </div>
+              </div>
+              <div class="carousel-item c-item">
+                <img src="<?php echo($platosInfo['imagen5']) ?>" class="d-block  c-img" alt="restaurante-image">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5><?php echo $platosInfo['plato5'] ?></h5>
+                </div>
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -72,12 +100,15 @@
           <li>Telefono: <?php echo $rest['tel']; ?></li>
         </ul>
         <div class="container-fluid d-flex justify-content-between">
-          <a href="<?php echo URLROOT ?>/assets/InfoRest/Asiatica.pdf" target="_blank">
+          <a href="<?php echo URLROOT ?>/assets/InfoRest/Menu.pdf" target="_blank">
             <button class="btn btn-secondary shadow rounded" id="reservarBtn">Ver Menú</button>
           </a>
-          <a href="../../HacerReserva/reservar/<?php echo $rest['id'] ?>">
-            <button class="btn btn-secondary shadow rounded" id="reservarBtn">Reservar</button>
-          </a>
+          <?php if ($rest['tipoRes'] != 'Fonda'): ?>
+            <a href="../../HacerReserva/reservar/<?php echo $rest['id'] ?>">
+              <button class="btn btn-secondary shadow rounded" id="reservarBtn">Reservar</button>
+            </a>
+          <?php endif; ?>
+          
 
         </div>
       </div>
