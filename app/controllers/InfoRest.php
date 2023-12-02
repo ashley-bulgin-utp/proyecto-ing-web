@@ -32,8 +32,25 @@
                     'descripcion' => $fetchObj -> desc_desc,
                     'horario' => $fetchObj -> dias_con_horas
                 ];
+
+                $platosInfo = $this->restModel->fetchPlatoInfo($restauranteInfo['id']);
+
+                $platoInfo = [
+                    'plato1' => $platosInfo->pla_plato1,
+                    'plato2' => $platosInfo->pla_plato2,
+                    'plato3' => $platosInfo->pla_plato3,
+                    'plato4' => $platosInfo->pla_plato4,
+                    'plato5' => $platosInfo->pla_plato5,
+                    'imagen1' => $platosInfo->pla_imagen1,
+                    'imagen2' => $platosInfo->pla_imagen2,
+                    'imagen3' => $platosInfo->pla_imagen3,
+                    'imagen4' => $platosInfo->pla_imagen4,
+                    'imagen5' => $platosInfo->pla_imagen5,
+                ];
+
+
                 if(!empty($_SESSION['user_id'])) {
-                    $this->view('infoRest', ['restauranteInfo'=>$restauranteInfo]);
+                    $this->view('infoRest', ['restauranteInfo'=>$restauranteInfo, 'platosInfo' => $platoInfo]);
                 } else {
                     redirect('Login/login/1');
                 }
