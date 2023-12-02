@@ -72,5 +72,33 @@
                 return false;
             }
         }
+
+        public function fetchPlatoInfo($id) {
+            $this->db->query(
+                'SELECT
+                r.res_id,
+                p.pla_plato1, pi.pla_imagen1,
+                p.pla_plato2, pi.pla_imagen2,
+                p.pla_plato3, pi.pla_imagen3,
+                p.pla_plato4, pi.pla_imagen4,
+                p.pla_plato5, pi.pla_imagen5
+                FROM
+                    restaurantes r
+                JOIN
+                    platos p ON r.res_plato = p.pla_id
+                JOIN
+                    platos_img pi ON r.res_plato = pi.id_plato
+                WHERE r.res_id = :rest_id');
+            $this->db->bind(':rest_id', $id);
+
+            $platosInfo = $this->db->single();
+    
+            if($this->db->rowCount() > 0) {
+                return $platosInfo;
+            } else {
+                return false;
+            }     
+            
+        }
     }
 ?>
